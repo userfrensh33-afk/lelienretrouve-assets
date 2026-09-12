@@ -1,62 +1,109 @@
-<div id="llr-app"></div>
+<div id="llr"></div>
 
 <style>
-#llr-app *{box-sizing:border-box;margin:0;padding:0}
-#llr-app{--nuit:#0E1A2B;--nuit2:#152439;--or:#C9A227;--terre:#C4633F;--creme:#F6F1E8;--gris:#8FA0B5;
-font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--nuit);color:var(--creme);
-min-height:100vh;padding:18px 16px 48px;line-height:1.55;-webkit-font-smoothing:antialiased;text-align:left}
-#llr-app .wrap{max-width:560px;margin:0 auto}
-#llr-app .logo{display:flex;align-items:center;gap:9px;justify-content:center;margin-bottom:22px}
-#llr-app .logo svg{width:34px;height:34px;flex:0 0 34px}
-#llr-app .logo b{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:16px;letter-spacing:.055em;color:var(--creme)}
-#llr-app .logo b i{font-style:normal;color:var(--or)}
-#llr-app .bar{height:3px;background:rgba(255,255,255,.09);border-radius:3px;overflow:hidden;margin-bottom:26px}
-#llr-app .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--terre),var(--or));border-radius:3px;transition:width .45s ease}
-#llr-app h1{font-family:Georgia,serif;font-weight:400;font-size:27px;line-height:1.25;margin-bottom:14px;color:var(--creme)}
-#llr-app h2{font-family:Georgia,serif;font-weight:400;font-size:22px;line-height:1.3;margin-bottom:20px;color:var(--creme)}
-#llr-app .sub{color:var(--gris);font-size:15px;margin-bottom:24px}
-#llr-app .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--or);margin-bottom:12px}
-#llr-app .hero{width:100%;border-radius:14px;display:block;margin-bottom:22px}
-#llr-app .opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:var(--nuit2);
-border:1px solid rgba(255,255,255,.10);color:var(--creme);border-radius:13px;padding:16px 15px;margin-bottom:11px;
-font-size:15.5px;cursor:pointer;transition:.18s;font-family:inherit;line-height:1.4;-webkit-tap-highlight-color:transparent}
-#llr-app .opt:active{transform:scale(.985)}
-#llr-app .opt.on{border-color:var(--or);background:#1B2C44}
-#llr-app .opt em{font-style:normal;font-size:21px;flex:0 0 26px;text-align:center}
-#llr-app .opt .tick{margin-left:auto;width:19px;height:19px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);flex:0 0 19px}
-#llr-app .opt.on .tick{background:var(--or);border-color:var(--or);position:relative}
-#llr-app .opt.on .tick:after{content:'';position:absolute;left:5.5px;top:2.5px;width:5px;height:9px;border:solid var(--nuit);border-width:0 2px 2px 0;transform:rotate(45deg)}
-#llr-app .cta{display:block;width:100%;background:linear-gradient(180deg,#D9B02C,#B7911F);color:#1A1206;border:0;
-border-radius:13px;padding:17px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;margin-top:20px;
-letter-spacing:.01em;box-shadow:0 5px 18px rgba(201,162,39,.24)}
-#llr-app .cta:active{transform:scale(.99)}
-#llr-app .cta[disabled]{opacity:.35;box-shadow:none}
-#llr-app .ghost{background:none;border:0;color:var(--gris);font-size:14px;font-family:inherit;text-decoration:underline;cursor:pointer;display:block;margin:16px auto 0;padding:6px}
-#llr-app .card{background:var(--nuit2);border:1px solid rgba(201,162,39,.26);border-radius:16px;overflow:hidden;margin-bottom:8px}
-#llr-app .card img{width:100%;display:block}
-#llr-app .card .in{padding:20px 18px}
-#llr-app .card p{font-size:15.5px;margin-bottom:12px}
-#llr-app .card p:last-child{margin-bottom:0}
-#llr-app .card strong{color:var(--or);font-weight:600}
-#llr-app .quote{border-left:2px solid var(--terre);padding-left:13px;font-style:italic;color:#D8CFC0;font-size:15px;margin:14px 0}
-#llr-app .gauge{margin:22px 0 6px}
-#llr-app .gauge .lbl{display:flex;justify-content:space-between;font-size:12.5px;color:var(--gris);margin-bottom:7px}
-#llr-app .gauge .tr{height:9px;background:rgba(255,255,255,.09);border-radius:9px;overflow:hidden}
-#llr-app .gauge .tr i{display:block;height:100%;background:linear-gradient(90deg,var(--or),var(--terre));border-radius:9px;transition:width 1s ease}
-#llr-app .field{width:100%;background:#0A1422;border:1px solid rgba(255,255,255,.16);color:var(--creme);
-border-radius:12px;padding:16px;font-size:16px;font-family:inherit;margin-top:6px}
-#llr-app .field::placeholder{color:#6D7F94}
-#llr-app .legal{font-size:12px;color:#6D7F94;margin-top:14px;text-align:center;line-height:1.5}
-#llr-app .err{color:#FF9C82;font-size:14px;margin-top:10px;display:none}
-#llr-app .load{text-align:center;padding:44px 0}
-#llr-app .load .ring{width:44px;height:44px;margin:0 auto 22px;border:3px solid rgba(201,162,39,.2);border-top-color:var(--or);border-radius:50%;animation:llrspin .85s linear infinite}
-@keyframes llrspin{to{transform:rotate(360deg)}}
-#llr-app .load p{color:var(--gris);font-size:15px;margin-bottom:9px;opacity:0;transition:.4s}
-#llr-app .load p.on{opacity:1;color:var(--creme)}
-#llr-app .scr{display:none;animation:llrin .35s ease}
-#llr-app .scr.on{display:block}
-@keyframes llrin{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-@media(max-width:380px){#llr-app h1{font-size:24px}#llr-app .opt{font-size:14.8px;padding:15px 13px}}
+#llr *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+#llr{--bg:#F5F1EA;--card:#FFFFFF;--ink:#1B2433;--soft:#6E7789;--line:#E4DDD1;
+--acc:#C4633F;--acc2:#A8502F;--gold:#E8B44A;--ok:#3E9E6B;
+font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+background:var(--bg);color:var(--ink);min-height:100vh;padding:16px 16px 40px;line-height:1.5;
+-webkit-font-smoothing:antialiased;text-align:left}
+#llr .w{max-width:480px;margin:0 auto}
+
+#llr .top{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
+#llr .top svg{width:30px;height:30px;flex:0 0 30px}
+#llr .top b{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+#llr .top b i{font-style:normal;color:var(--acc)}
+
+#llr .nav{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+#llr .back{width:28px;height:28px;flex:0 0 28px;border:0;background:none;cursor:pointer;color:var(--soft);font-size:22px;line-height:1;padding:0}
+#llr .prog{flex:1;height:5px;background:#E4DDD1;border-radius:5px;overflow:hidden}
+#llr .prog i{display:block;height:100%;width:0;background:var(--acc);border-radius:5px;transition:width .4s ease}
+
+#llr h1{font-size:25px;line-height:1.2;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+#llr h1 u{text-decoration:none;background:linear-gradient(transparent 62%,rgba(232,180,74,.55) 62%)}
+#llr h2{font-size:21px;line-height:1.28;font-weight:800;letter-spacing:-.015em;margin-bottom:18px}
+#llr .lead{color:var(--soft);font-size:15px;margin-bottom:18px}
+#llr .anti{color:var(--acc2);font-size:14.5px;font-weight:600;margin-bottom:16px}
+#llr .qlab{font-size:17px;font-weight:800;margin:22px 0 12px;text-align:center}
+
+#llr .grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+#llr .ph{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--card);
+border:2px solid transparent;box-shadow:0 2px 8px rgba(27,36,51,.08);transition:.15s}
+#llr .ph:active{transform:scale(.98)}
+#llr .ph.on{border-color:var(--acc)}
+#llr .ph img{width:100%;height:118px;object-fit:cover;display:block}
+#llr .ph span{display:flex;align-items:center;justify-content:space-between;gap:6px;
+padding:10px 11px;font-size:13.5px;font-weight:700;line-height:1.25;background:var(--card)}
+#llr .ph span:after{content:'›';color:var(--acc);font-size:19px;font-weight:800;flex:0 0 auto}
+
+#llr .opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:var(--card);
+border:1.5px solid var(--line);color:var(--ink);border-radius:13px;padding:15px 14px;margin-bottom:10px;
+font-size:15.5px;font-weight:600;cursor:pointer;transition:.15s;font-family:inherit;line-height:1.35;
+box-shadow:0 1px 4px rgba(27,36,51,.05)}
+#llr .opt:active{transform:scale(.99)}
+#llr .opt.on{border-color:var(--acc);background:#FFF7F3}
+#llr .opt em{font-style:normal;font-size:20px;flex:0 0 24px;text-align:center}
+#llr .opt .bx{margin-left:auto;width:21px;height:21px;flex:0 0 21px;border:1.5px solid #CFC7B8;border-radius:6px;position:relative}
+#llr .opt.on .bx{background:var(--acc);border-color:var(--acc)}
+#llr .opt.on .bx:after{content:'';position:absolute;left:6px;top:3px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+#llr .opt .ch{margin-left:auto;color:var(--acc);font-size:19px;font-weight:800}
+
+#llr .cta{display:block;width:100%;background:var(--gold);color:#2A1C06;border:0;border-radius:40px;
+padding:16px;font-size:16.5px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:18px;
+box-shadow:0 3px 12px rgba(232,180,74,.4)}
+#llr .cta:active{transform:scale(.99)}
+#llr .cta[disabled]{opacity:.4;box-shadow:none}
+#llr .ghost{background:none;border:0;color:var(--soft);font-size:14px;font-family:inherit;
+text-decoration:underline;cursor:pointer;display:block;margin:14px auto 0;padding:6px}
+
+#llr .tst{background:var(--card);border-radius:14px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px rgba(27,36,51,.07)}
+#llr .tst .st{color:#E8B44A;font-size:14px;letter-spacing:2px;margin-bottom:7px}
+#llr .tst h4{font-size:15px;font-weight:800;margin-bottom:6px}
+#llr .tst p{font-size:14.5px;color:#4A5265;margin-bottom:9px}
+#llr .tst .who{font-size:13px;color:var(--soft);font-weight:600}
+#llr .tst .who b{color:var(--ink)}
+
+#llr .ins{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 3px 14px rgba(27,36,51,.09)}
+#llr .ins img{width:100%;height:190px;object-fit:cover;display:block}
+#llr .ins .in{padding:18px}
+#llr .ins p{font-size:15.5px;margin-bottom:11px}
+#llr .ins p:last-child{margin-bottom:0}
+#llr .ins strong{color:var(--acc2)}
+#llr .q{border-left:3px solid var(--gold);padding-left:12px;font-style:italic;color:#4A5265;font-size:15px;margin:12px 0}
+
+#llr .res{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 3px 14px rgba(27,36,51,.09);margin-bottom:16px}
+#llr .res img{width:100%;height:180px;object-fit:cover;display:block}
+#llr .res .in{padding:18px}
+#llr .res p{font-size:15.5px;margin-bottom:11px}
+#llr .res p:last-child{margin-bottom:0}
+#llr .res strong{color:var(--acc2)}
+#llr .badge{display:inline-block;background:#FFF1E8;color:var(--acc2);font-size:12px;font-weight:800;
+letter-spacing:.08em;text-transform:uppercase;padding:6px 11px;border-radius:20px;margin-bottom:12px}
+
+#llr .g{background:var(--card);border-radius:14px;padding:15px;margin-bottom:16px;box-shadow:0 2px 8px rgba(27,36,51,.07)}
+#llr .g .lb{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--soft);font-weight:600;margin-bottom:8px}
+#llr .g .lb b{font-size:19px;color:var(--acc);font-weight:800}
+#llr .g .tr{height:10px;background:#EFE9DE;border-radius:10px;overflow:hidden}
+#llr .g .tr i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--acc));border-radius:10px;transition:width .9s ease}
+#llr .g small{display:block;font-size:13px;color:var(--soft);margin-top:9px;line-height:1.45}
+
+#llr .fld{width:100%;background:#fff;border:1.5px solid var(--line);color:var(--ink);border-radius:12px;
+padding:15px;font-size:16px;font-family:inherit;margin-bottom:10px}
+#llr .fld::placeholder{color:#A7AEBC}
+#llr .fld:focus{outline:0;border-color:var(--acc)}
+#llr .lg{font-size:12.5px;color:var(--soft);margin-top:12px;text-align:center;line-height:1.5}
+#llr .er{color:#C0392B;font-size:14px;margin-bottom:8px;display:none;font-weight:600}
+
+#llr .ld{text-align:center;padding:40px 0}
+#llr .ld .ring{width:42px;height:42px;margin:0 auto 20px;border:3px solid #E4DDD1;border-top-color:var(--acc);border-radius:50%;animation:llrs .8s linear infinite}
+@keyframes llrs{to{transform:rotate(360deg)}}
+#llr .ld p{color:#A7AEBC;font-size:15px;margin-bottom:10px;font-weight:600;transition:.35s}
+#llr .ld p.on{color:var(--ink)}
+#llr .ld p.on:before{content:'✓ ';color:var(--ok)}
+
+#llr .sc{animation:llrin .3s ease}
+@keyframes llrin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:360px){#llr h1{font-size:22px}#llr .ph img{height:100px}}
 </style>
 
 <script>
@@ -68,170 +115,208 @@ var CHECKOUT_URL="/commande";
 var CDN="https://cdn.jsdelivr.net/gh/userfrensh33-afk/lelienretrouve-assets@main/img/";
 
 var LOGO='<svg viewBox="0 0 64 64" fill="none" aria-hidden="true">'
-+'<path d="M40 17a15 15 0 1 0 0 30" stroke="#C9A227" stroke-width="4.2" stroke-linecap="round"/>'
-+'<path d="M24 17a15 15 0 1 1 0 30" stroke="#F6F1E8" stroke-width="4.2" stroke-linecap="round" opacity=".92"/>'
-+'<circle cx="32" cy="32" r="3.1" fill="#C4633F"/></svg>';
++'<path d="M40 17a15 15 0 1 0 0 30" stroke="#C4633F" stroke-width="5" stroke-linecap="round"/>'
++'<path d="M24 17a15 15 0 1 1 0 30" stroke="#1B2433" stroke-width="5" stroke-linecap="round"/>'
++'<circle cx="32" cy="32" r="3.4" fill="#E8B44A"/></svg>';
+
+/* Q1 = cartes photo (détermine le profil). Le reste = boutons. */
+var P1=[
+ {img:"profil-forteresse.jpg",t:"Il s'enferme, ne me parle plus",k:"F"},
+ {img:"profil-orage.jpg",t:"Les clashs, l'insolence",k:"O"},
+ {img:"profil-brasdefer.jpg",t:"La bataille des écrans",k:"B"},
+ {img:"profil-courantdair.jpg",t:"Il vit sa vie, je n'existe plus",k:"C"}
+];
 
 var Q=[
-{k:"obj",q:"Qu'est-ce que tu aimerais retrouver en premier avec ton ado ?",a:[
-["💬","Qu'on se parle a nouveau, vraiment"],["🕊️","La serenite a la maison, sans crier"],
-["🤝","La complicite qu'on avait avant"],["😮‍💨","Arreter d'avoir cette boule au ventre le soir"]]},
-{k:"age",q:"Ton ado a quel age ?",a:[
-["","11-13 ans — ca commence"],["","14-15 ans — en plein dedans"],
-["","16-17 ans — ca dure et ca s'aggrave"],["","18 ans et + — toujours sous mon toit"]]},
-{k:"seul",q:"Et toi, tu geres ca comment ?",a:[
-["","Seule la plupart du temps"],["","En couple, mais pas alignes"],
-["","En couple, alignes mais depasses"],["","En garde alternee — chez l'autre tout est permis"]]},
-{k:"prof",q:"Aujourd'hui, c'est quoi le plus dur ?",a:[
-["🚪","Il s'enferme, ne repond que par monosyllabes","F"],
-["🌩️","Les clashs, l'insolence, parfois les insultes","O"],
-["📱","Le telephone et les ecrans, une bataille sans fin","B"],
-["🚶","Il vit sa vie comme si on etait un hotel","C"]]},
-{ins:1},
-{k:"mom",q:"Le moment ou ca derape le plus souvent ?",a:[
-["","Le soir, au moment des ecrans"],["","A table"],
-["","Les devoirs et l'ecole"],["","N'importe quand : un mot de travers et ca explose"]]},
-{k:"try",q:"Qu'est-ce que tu as deja essaye ?",multi:true,a:[
-["","Confisquer le telephone"],["","Punir, priver de sortie"],
-["","Le dialogue calme (qui finit en monologue)"],["","Un psy"],
-["","Les livres et les videos de parentalite"],["","Ceder, pour avoir la paix"]]},
-{k:"esc",q:"Quand tu poses une limite, il se passe quoi ?",a:[
-["","Explosion immediate, portes qui claquent",3],
-["","Il attend que je craque… et je craque",3],
-["","Il contourne dans mon dos",2],
-["","Rien. Silence total. Et c'est presque pire.",2]]},
-{k:"pos",q:"Sois honnete, tu te reconnais ou ?",a:[
-["","Je serre la vis, puis je lache, puis je resserre",4],
-["","Je cede plus que je voudrais, pour eviter le clash",3],
-["","Je suis devenue plus dure que je ne voudrais l'etre",3],
-["","J'ai un peu renonce, je subis",2]]},
-{ins:2},
-{k:"phr",q:"Quelle phrase ressemble le plus a ton quotidien ?",a:[
-["","« Quoi que je fasse, j'ai toujours tort »"],
-["","« A cote des gens, c'est un ange. Personne ne voit ce que je vis »"],
-["","« On etait fusionnels avant. Je ne le reconnais plus »"],
-["","« Je suis a bout. Je ne sais plus a quelle porte frapper »"]]},
-{k:"peur",q:"Ta plus grande peur, au fond ?",a:[
-["","Qu'il finisse mal"],["","Que le lien se casse pour de bon, meme adulte"],
-["","De ne pas tenir moi-meme"],["","Que les petits freres et soeurs en payent le prix"]]},
-{ins:3},
-{k:"pret",q:"Si on te donnait les mots exacts a dire — et ceux a ne plus jamais dire — tu testerais des ce soir ?",a:[
-["","Oui, ce soir meme"],["","Oui, mais j'ai peur que ca ne marche pas avec MON ado"],
-["","Oui, si ca ne me prend pas des heures — je suis epuisee"]]},
-{k:"dur",q:"Depuis combien de temps ca dure ?",a:[
-["","Quelques mois"],["","Environ un an"],["","Plusieurs annees — c'est devenu notre normalite"]]}
+ {k:"age",q:"Ton ado a quel âge ?",a:[
+  ["","11-13 ans, ça commence"],["","14-15 ans, en plein dedans"],
+  ["","16-17 ans, ça dure et ça s'aggrave"],["","18 ans et plus, toujours sous mon toit"]]},
+ {k:"obj",q:"Qu'est-ce que tu aimerais retrouver en premier ?",a:[
+  ["💬","Qu'on se parle à nouveau, vraiment"],["🕊️","La sérénité à la maison, sans crier"],
+  ["🤝","La complicité qu'on avait avant"],["😮‍💨","Ne plus avoir cette boule au ventre le soir"]]},
+ {ins:1},
+ {k:"seul",q:"Et toi, tu gères ça comment ?",a:[
+  ["","Seule, la plupart du temps"],["","En couple, mais pas alignés"],
+  ["","En couple, alignés mais dépassés"],["","En garde alternée, chez l'autre tout est permis"]]},
+ {k:"mom",q:"Le moment où ça dérape le plus souvent ?",a:[
+  ["","Le soir, au moment des écrans"],["","À table"],
+  ["","Les devoirs et l'école"],["","N'importe quand, un mot de travers et ça explose"]]},
+ {k:"try",q:"Qu'est-ce que tu as déjà essayé ?",multi:true,a:[
+  ["","Confisquer le téléphone"],["","Punir, priver de sortie"],
+  ["","Le dialogue calme, qui finit en monologue"],["","Un psy"],
+  ["","Les livres et les vidéos de parentalité"],["","Céder, pour avoir la paix"]]},
+ {k:"esc",q:"Quand tu poses une limite, il se passe quoi ?",a:[
+  ["","Explosion immédiate, portes qui claquent",3],
+  ["","Il attend que je craque, et je craque",3],
+  ["","Il contourne dans mon dos",2],
+  ["","Rien. Silence total. Et c'est presque pire.",2]]},
+ {k:"pos",q:"Sois honnête : tu te reconnais où ?",a:[
+  ["","Je serre la vis, puis je lâche, puis je resserre",4],
+  ["","Je cède plus que je voudrais, pour éviter le clash",3],
+  ["","Je suis devenue plus dure que je ne voudrais l'être",3],
+  ["","J'ai un peu renoncé, je subis",2]]},
+ {ins:2},
+ {k:"phr",q:"Quelle phrase ressemble le plus à ton quotidien ?",a:[
+  ["","« Quoi que je fasse, j'ai toujours tort »"],
+  ["","« À côté des gens c'est un ange, personne ne voit ce que je vis »"],
+  ["","« On était fusionnels avant, je ne le reconnais plus »"],
+  ["","« Je suis à bout, je ne sais plus à quelle porte frapper »"]]},
+ {k:"peur",q:"Ta plus grande peur, au fond ?",a:[
+  ["","Qu'il finisse mal"],["","Que le lien se casse pour de bon, même adulte"],
+  ["","De ne pas tenir moi-même"],["","Que les petits frères et sœurs en payent le prix"]]},
+ {ins:3},
+ {k:"pret",q:"Si on te donnait les mots exacts à dire, et ceux à ne plus jamais dire, tu testerais dès ce soir ?",a:[
+  ["","Oui, ce soir même"],["","Oui, mais j'ai peur que ça ne marche pas avec le mien"],
+  ["","Oui, si ça ne me prend pas des heures, je suis épuisée"]]}
 ];
 
 var INS={
-1:{img:"insight-1-pas-seule.jpg",h:"Tu n'es pas seule.",
-b:"<p>Sur les 2 000 derniers temoignages de parents qu'on a analyses, le mot qui revient le plus n'est ni « insolence » ni « ecrans ». C'est <strong>« demunie »</strong>.</p><p>Ce que tu vis a une mecanique precise. Et une mecanique, ca se repare.</p>"},
-2:{img:"insight-2-bascule.jpg",h:"Ce que tu viens de decrire porte un nom : la Bascule.",
-b:"<p>Un coup on serre, un coup on lache. Pas par faiblesse : par epuisement.</p><p>Le probleme, c'est qu'a chaque aller-retour ton ado apprend une seule chose : <strong>le lien avec maman n'est pas un endroit sur</strong>.</p><p>Ce n'est pas toi le probleme. C'est la Bascule. Et elle se desamorce.</p>"},
-3:{img:"insight-3-espoir.jpg",h:"Le lien ne meurt pas a l'adolescence.",
-b:"<div class='quote'>« J'ai vecu 5 ans tres difficiles avec ma fille. Aujourd'hui, la vie a la maison n'a plus rien a voir. »</div><div class='quote'>« Il a 23 ans maintenant, un travail, une copine. C'est un jeune homme adorable. Ne lachez pas. »</div><p>Il se met en veille. Encore 2 questions et tu sauras comment rallumer le tien.</p>"}
+ 1:{img:"insight-1-pas-seule.jpg",h:"Tu n'es pas seule dans ta cuisine ce soir.",
+  b:"<p>Nous avons analysé <strong>2 046 témoignages</strong> de parents d'ados francophones. Le mot qui revient le plus n'est ni « insolence » ni « écrans ».</p><p>C'est <strong>« démunie »</strong>.</p><p>Ce que tu vis a une mécanique précise. Et une mécanique, ça se répare.</p>"},
+ 2:{img:"insight-2-bascule.jpg",h:"Ce que tu viens de décrire porte un nom : la Bascule.",
+  b:"<p>Un coup on serre, un coup on lâche. Pas par faiblesse : par épuisement.</p><p>Le problème, c'est qu'à chaque aller-retour ton ado apprend une seule chose : <strong>le lien avec toi n'est pas un endroit sûr</strong>.</p><p>Ce n'est pas toi le problème. C'est la Bascule. Et elle se désamorce.</p>"},
+ 3:{img:"insight-3-espoir.jpg",h:"Le lien ne meurt pas à l'adolescence.",
+  b:"<div class='q'>« J'ai vécu 5 ans très difficiles avec ma fille. Aujourd'hui, la vie à la maison n'a plus rien à voir. »</div><div class='q'>« Il a 23 ans maintenant : un travail, un appartement, une copine. Ne lâchez pas. »</div><p>Il se met en veille. Plus qu'une question et tu sauras comment rallumer le tien.</p>"}
 };
 
 var PROF={
-F:{n:"FORTERESSE",e:"🚪",img:"profil-forteresse.jpg",
-t:"<p>Ton ado ne te rejette pas. Il s'est mis a l'abri.</p><p>Quelque part en chemin, son cerveau a associe « parler a maman » a « prendre un coup » : une remarque, un conseil donne trop vite, une reaction trop forte au mauvais moment. Il ne s'en souvient meme plus. Mais la porte s'est fermee.</p><p><strong>Une forteresse a toujours une porte.</strong> Et elle ne s'ouvre pas en insistant ni en posant plus de questions : elle s'ouvre en changeant 3 gestes precis dans tes 10 premieres secondes d'interaction.</p>"},
-O:{n:"ORAGE",e:"🌩️",img:"profil-orage.jpg",
-t:"<p>Chez vous, ce ne sont pas les conflits le probleme. C'est <strong>la boucle</strong> : tu montes le ton, il se braque, tu regrettes, et demain ca recommence a l'identique.</p><p>Un orage, ca ne se gagne pas a la force. Ca se desamorce avant qu'il eclate — et il existe un point precis, 20 secondes avant l'explosion, ou tout peut encore basculer dans l'autre sens.</p>"},
-B:{n:"BRAS DE FER",e:"📱",img:"profil-brasdefer.jpg",
-t:"<p>Tu ne te bats pas contre un telephone. Tu te bats contre <strong>une negociation permanente</strong> ou chaque regle devient un contrat a renegocier.</p><p>La guerre des ecrans, personne ne l'a jamais gagnee par la confiscation : il contourne, et tu perds en plus la confiance. Ce qui marche, c'est de sortir du rapport de force — pas de le durcir.</p>"},
-C:{n:"COURANT D'AIR",e:"🚶",img:"profil-courantdair.jpg",
-t:"<p>Il n'y a ni cri ni claquement de porte chez toi. Il y a <strong>une absence</strong> : il rentre, il repart, il consomme la maison comme un hotel.</p><p>C'est le profil le plus silencieux et le plus trompeur — parce qu'on se dit « au moins, il n'y a pas de conflit ». Mais l'indifference n'est pas la paix. Et elle se renverse par des micro-moments, pas par de grandes conversations.</p>"}
+ F:{n:"La Forteresse",img:"profil-forteresse.jpg",
+  t:"<p>Ton ado ne te rejette pas : il s'est mis à l'abri.</p><p>Quelque part en chemin, son cerveau a associé « parler à maman » à « prendre un coup » : une remarque, un conseil donné trop vite, une réaction trop forte au mauvais moment. Il ne s'en souvient même plus. Mais la porte s'est fermée.</p><p><strong>Une forteresse a toujours une porte.</strong> Elle ne s'ouvre pas en insistant ni en posant plus de questions : elle s'ouvre en changeant 3 gestes précis dans tes 10 premières secondes d'interaction.</p>"},
+ O:{n:"L'Orage",img:"profil-orage.jpg",
+  t:"<p>Chez vous, le problème n'est pas le conflit. C'est <strong>la boucle</strong> : tu montes le ton, il se braque, tu regrettes, et demain ça recommence à l'identique.</p><p>Un orage ne se gagne pas à la force. Il se désamorce avant d'éclater, et il existe un point précis, environ 20 secondes avant l'explosion, où tout peut encore basculer dans l'autre sens.</p>"},
+ B:{n:"Le Bras de Fer",img:"profil-brasdefer.jpg",
+  t:"<p>Tu ne te bats pas contre un téléphone. Tu te bats contre <strong>une négociation permanente</strong>, où chaque règle devient un contrat à renégocier.</p><p>La guerre des écrans, personne ne l'a jamais gagnée par la confiscation : il contourne, et tu perds la confiance en plus. Ce qui marche, c'est de sortir du rapport de force, pas de le durcir.</p>"},
+ C:{n:"Le Courant d'Air",img:"profil-courantdair.jpg",
+  t:"<p>Chez toi, il n'y a ni cri ni porte qui claque. Il y a <strong>une absence</strong> : il rentre, il repart, il consomme la maison comme un hôtel.</p><p>C'est le profil le plus silencieux et le plus trompeur, parce qu'on se dit « au moins il n'y a pas de conflit ». Mais l'indifférence n'est pas la paix. Elle se renverse par des micro-moments, jamais par une grande conversation.</p>"}
 };
 
-var st={i:0,ans:{},score:{F:0,O:0,B:0,C:0},basc:0,multi:[]};
-var app=document.getElementById('llr-app');
-try{var sv=localStorage.getItem('llr_st');if(sv){var o=JSON.parse(sv);if(o&&o.i<Q.length)st=o}}catch(e){}
-function save(){try{localStorage.setItem('llr_st',JSON.stringify(st))}catch(e){}}
+var TST=[
+ {t:"Je n'osais en parler à personne",p:"Je pensais être la seule à vivre ça. Lire les mots des autres mères m'a enlevé un poids énorme, avant même de commencer quoi que ce soit.",w:"Karine",q:"maman d'un garçon de 15 ans"},
+ {t:"J'ai compris que j'oscillais",p:"Je passais mes soirées entre crier et laisser tomber. Mettre un nom sur ce que je faisais a tout changé dans ma façon de lui répondre.",w:"Sylvie",q:"maman d'une fille de 14 ans"},
+ {t:"La porte s'est rouverte",p:"Il ne répondait plus que par oui et non. Trois semaines après avoir changé ma façon d'entrer dans sa chambre, il est venu me parler de lui-même.",w:"Nathalie",q:"maman d'un garçon de 16 ans"}
+];
+
+var st={i:-1,ans:{},score:{F:0,O:0,B:0,C:0},basc:0,multi:[],hist:[]};
+var app=document.getElementById('llr');
+try{var s=localStorage.getItem('llr2');if(s){var o=JSON.parse(s);if(o&&typeof o.i==='number'&&o.i<Q.length)st=o}}catch(e){}
+function save(){try{localStorage.setItem('llr2',JSON.stringify(st))}catch(e){}}
 function fb(ev,d){try{if(window.fbq)fbq('track',ev,d||{})}catch(e){}}
-function head(pct){return '<div class="logo">'+LOGO+'<b>LE LIEN <i>RETROUVE</i></b></div>'+(pct!==null?'<div class="bar"><i style="width:'+pct+'%"></i></div>':'')}
-function render(h){app.innerHTML='<div class="wrap">'+h+'</div>';window.scrollTo(0,0)}
+var TOT=11;
+function nQ(i){var c=0;for(var j=0;j<=i&&j<Q.length;j++){if(!Q[j].ins)c++}return c+1}
+function logo(){return '<div class="top">'+LOGO+'<b>Le Lien <i>Retrouvé</i></b></div>'}
+function nav(pct){return '<div class="nav"><button class="back" id="bk">←</button><div class="prog"><i style="width:'+pct+'%"></i></div></div>'}
+function render(h){app.innerHTML='<div class="w">'+h+'</div>';window.scrollTo(0,0);
+var b=document.getElementById('bk');if(b)b.onclick=back}
+function back(){if(st.i<=-1)return;st.i--;if(st.i===-1){intro();return}save();step()}
 
+/* ---------- écran 1 : accroche + Q1 photo ---------- */
 function intro(){
-render(head(null)+'<div class="scr on">'
-+'<img class="hero" src="'+CDN+'hero-quiz.jpg" alt="">'
-+'<h1>Ton ado s\'eloigne et tu ne sais plus quoi faire ?</h1>'
-+'<p class="sub">12 questions, 2 minutes. Tu decouvres le profil de votre lien, ce qui le ferme vraiment, et les 3 premiers gestes pour le rouvrir des ce soir.</p>'
-+'<button class="cta" id="go">Decouvrir le profil de notre lien</button>'
-+'<p class="legal">Gratuit et anonyme. Sans jugement.</p></div>');
-document.getElementById('go').onclick=function(){fb('ViewContent',{content_name:'quiz_start'});st.i=0;save();step()};
+ var h=logo()
+ +'<div class="sc"><h1>Ton ado s\'éloigne ? <u>Retrouve le lien</u> sans crier, sans forcer.</h1>'
+ +'<p class="anti">Sans le priver de tout. Sans des mois de thérapie.</p>'
+ +'<p class="lead">Fais le test de 2 minutes : tu découvres ce qui ferme vraiment votre lien, et les 3 premiers gestes pour le rouvrir dès ce soir.</p>'
+ +'<p class="qlab">Aujourd\'hui, c\'est quoi le plus dur ?</p><div class="grid">';
+ P1.forEach(function(p,n){h+='<div class="ph" data-n="'+n+'"><img src="'+CDN+p.img+'" alt=""><span>'+p.t+'</span></div>'});
+ h+='</div><p class="lg">Gratuit et anonyme. Sans jugement.</p></div>';
+ render(h);
+ var c=app.querySelectorAll('.ph');
+ Array.prototype.forEach.call(c,function(el){el.onclick=function(){
+  var n=+el.getAttribute('data-n');el.classList.add('on');
+  st.score[P1[n].k]+=3;st.ans.prof=P1[n].k;fb('ViewContent',{content_name:'quiz_start'});
+  setTimeout(function(){st.i=-0.5;save();proof()},220)}});
 }
 
+/* ---------- écran 2 : preuve ---------- */
+function proof(){
+ var h=logo()+nav(8)+'<div class="sc"><h2>Tu n\'es pas la seule à vivre ça</h2>'
+ +'<p class="lead">Voici ce que des parents dans ta situation nous ont écrit.</p>';
+ TST.forEach(function(t){h+='<div class="tst"><div class="st">★★★★★</div><h4>'+t.t+'</h4><p>'+t.p+'</p>'
+ +'<div class="who"><b>'+t.w+'</b> · '+t.q+'</div></div>'});
+ h+='<button class="cta" id="go">Continuer mon test</button></div>';
+ render(h);
+ document.getElementById('go').onclick=function(){st.i=0;save();step()};
+}
+
+/* ---------- questions ---------- */
 function step(){
-if(st.i>=Q.length){return calc()}
-var it=Q[st.i],pct=Math.round(st.i/Q.length*100);
-if(it.ins){return insight(it.ins,pct)}
-var h=head(pct)+'<div class="scr on"><div class="kicker">Question '+countQ(st.i)+' / 12</div><h2>'+it.q+'</h2>';
-it.a.forEach(function(a,n){h+='<button class="opt" data-n="'+n+'">'+(a[0]?'<em>'+a[0]+'</em>':'')+'<span>'+a[1]+'</span><span class="tick"></span></button>'});
-if(it.multi){h+='<button class="cta" id="nx" disabled>Continuer</button><button class="ghost" id="sk">Aucune de ces reponses</button>'}
-h+='</div>';render(h);st.multi=[];
-var opts=app.querySelectorAll('.opt');
-Array.prototype.forEach.call(opts,function(b){b.onclick=function(){
-var n=+b.getAttribute('data-n');
-if(it.multi){b.classList.toggle('on');var p=st.multi.indexOf(n);if(p<0)st.multi.push(n);else st.multi.splice(p,1);
-document.getElementById('nx').disabled=st.multi.length===0}
-else{Array.prototype.forEach.call(opts,function(x){x.classList.remove('on')});b.classList.add('on');pick(it,n);
-setTimeout(function(){st.i++;save();step()},210)}}});
-if(it.multi){document.getElementById('nx').onclick=function(){st.ans[it.k]=st.multi.slice();st.i++;save();step()};
-document.getElementById('sk').onclick=function(){st.ans[it.k]=[];st.i++;save();step()}}
+ if(st.i>=Q.length)return calc();
+ var it=Q[st.i],pct=10+Math.round(st.i/Q.length*85);
+ if(it.ins)return insight(it.ins,pct);
+ var h=logo()+nav(pct)+'<div class="sc"><h2>'+it.q+'</h2>';
+ it.a.forEach(function(a,n){h+='<button class="opt" data-n="'+n+'">'+(a[0]?'<em>'+a[0]+'</em>':'')
+ +'<span>'+a[1]+'</span>'+(it.multi?'<span class="bx"></span>':'<span class="ch">›</span>')+'</button>'});
+ if(it.multi)h+='<button class="cta" id="nx" disabled>Continuer</button><button class="ghost" id="sk">Aucune de ces réponses</button>';
+ h+='</div>';render(h);st.multi=[];
+ var opts=app.querySelectorAll('.opt');
+ Array.prototype.forEach.call(opts,function(b){b.onclick=function(){
+  var n=+b.getAttribute('data-n');
+  if(it.multi){b.classList.toggle('on');var p=st.multi.indexOf(n);if(p<0)st.multi.push(n);else st.multi.splice(p,1);
+   document.getElementById('nx').disabled=st.multi.length===0;return}
+  Array.prototype.forEach.call(opts,function(x){x.classList.remove('on')});b.classList.add('on');
+  var a=it.a[n];st.ans[it.k]=n;
+  if((it.k==='esc'||it.k==='pos')&&typeof a[2]==='number')st.basc+=a[2];
+  setTimeout(function(){st.i++;save();step()},200)}});
+ if(it.multi){document.getElementById('nx').onclick=function(){st.ans[it.k]=st.multi.slice();st.i++;save();step()};
+  document.getElementById('sk').onclick=function(){st.ans[it.k]=[];st.i++;save();step()}}
 }
-function countQ(i){var c=0;for(var j=0;j<=i;j++){if(!Q[j].ins)c++}return c}
-function pick(it,n){var a=it.a[n];st.ans[it.k]=n;
-if(it.k==='prof'&&a[2]){st.score[a[2]]+=3}
-if((it.k==='esc'||it.k==='pos')&&typeof a[2]==='number'){st.basc+=a[2]}}
 
+/* ---------- insights ---------- */
 function insight(id,pct){var d=INS[id];
-render(head(pct)+'<div class="scr on"><div class="card"><img src="'+CDN+d.img+'" alt=""><div class="in"><h2 style="margin-bottom:14px">'+d.h+'</h2>'+d.b+'</div></div>'
-+'<button class="cta" id="ok">Continuer</button></div>');
-document.getElementById('ok').onclick=function(){st.i++;save();step()}}
+ render(logo()+nav(pct)+'<div class="sc"><div class="ins"><img src="'+CDN+d.img+'" alt="">'
+ +'<div class="in"><h2 style="margin-bottom:12px">'+d.h+'</h2>'+d.b+'</div></div>'
+ +'<button class="cta" id="ok">J\'ai compris, je continue</button></div>');
+ document.getElementById('ok').onclick=function(){st.i++;save();step()};
+}
 
+/* ---------- calcul ---------- */
 function calc(){
-var msgs=['Analyse de tes reponses…','Profil du lien identifie','Position sur la Bascule calculee','Selection de tes 3 premiers gestes'];
-render(head(100)+'<div class="scr on"><div class="load"><div class="ring"></div>'+msgs.map(function(m,i){return '<p id="m'+i+'">'+m+'</p>'}).join('')+'</div></div>');
-msgs.forEach(function(m,i){setTimeout(function(){var el=document.getElementById('m'+i);if(el)el.classList.add('on')},i*620)});
-setTimeout(result,2900)}
+ var m=['Analyse de tes réponses','Profil de votre lien identifié','Position sur la Bascule calculée','Tes 3 premiers gestes sélectionnés'];
+ render(logo()+nav(100)+'<div class="sc"><div class="ld"><div class="ring"></div>'
+ +m.map(function(x,i){return '<p id="m'+i+'">'+x+'</p>'}).join('')+'</div></div>');
+ m.forEach(function(x,i){setTimeout(function(){var e=document.getElementById('m'+i);if(e)e.classList.add('on')},i*600)});
+ setTimeout(result,2800);
+}
 
+/* ---------- résultat ---------- */
 function result(){
-var best='F',mx=-1;for(var k in st.score){if(st.score[k]>mx){mx=st.score[k];best=k}}
-var p=PROF[best],b=Math.min(10,Math.max(3,st.basc));
-fb('Lead',{content_name:'quiz_result',content_category:p.n});
-render(head(100)+'<div class="scr on">'
-+'<div class="kicker">Ton resultat</div>'
-+'<h1>Votre lien est en mode<br>'+p.e+' '+p.n+'</h1>'
-+'<div class="card"><img src="'+CDN+p.img+'" alt=""><div class="in">'+p.t+'</div></div>'
-+'<div class="gauge"><div class="lbl"><span>Ton niveau sur la Bascule</span><b style="color:#C9A227">'+b+'/10</b></div>'
-+'<div class="tr"><i id="gg" style="width:0"></i></div>'
-+'<p class="legal" style="text-align:left;margin-top:9px">Plus tu oscilles entre fermete et lacher-prise, plus la porte reste fermee. C\'est le premier levier a corriger.</p></div>'
-+'<h2 style="margin-top:28px">Ton plan personnalise est pret</h2>'
-+'<p class="sub">Recois-le tout de suite : les scripts mot a mot pour ton profil <b>'+p.n+'</b>, le protocole 14 jours pour sortir de la Bascule, et les 7 phrases qui referment tout (a ne plus jamais dire).</p>'
-+'<input class="field" type="text" id="fn" placeholder="Ton prenom" autocomplete="given-name">'
-+'<input class="field" type="email" id="em" placeholder="Ton email" autocomplete="email" inputmode="email">'
-+'<div class="err" id="er"></div>'
-+'<button class="cta" id="snd">Recevoir mon plan personnalise</button>'
-+'<p class="legal">Tes reponses restent confidentielles. Desinscription en 1 clic.</p></div>');
-setTimeout(function(){var g=document.getElementById('gg');if(g)g.style.width=(b*10)+'%'},260);
-document.getElementById('snd').onclick=function(){submit(best,b)};
-document.getElementById('em').addEventListener('keydown',function(e){if(e.key==='Enter')submit(best,b)});
+ var best=st.ans.prof||'F',mx=-1;
+ for(var k in st.score){if(st.score[k]>mx){mx=st.score[k];best=k}}
+ var p=PROF[best],b=Math.min(10,Math.max(3,st.basc));
+ fb('Lead',{content_name:'quiz_result',content_category:p.n});
+ render(logo()
+ +'<div class="sc"><div class="badge">Ton résultat</div>'
+ +'<h1>Votre lien est en mode <u>'+p.n+'</u></h1>'
+ +'<div class="res"><img src="'+CDN+p.img+'" alt=""><div class="in">'+p.t+'</div></div>'
+ +'<div class="g"><div class="lb"><span>Ton niveau sur la Bascule</span><b>'+b+'/10</b></div>'
+ +'<div class="tr"><i id="gg"></i></div>'
+ +'<small>Plus tu oscilles entre fermeté et lâcher-prise, plus la porte reste fermée. C\'est le premier levier à corriger.</small></div>'
+ +'<h2>Ton plan personnalisé est prêt</h2>'
+ +'<p class="lead">Les scripts mot à mot pour un lien en mode <b>'+p.n+'</b>, le protocole 14 jours pour sortir de la Bascule, et les 7 phrases qui referment tout, à ne plus jamais dire.</p>'
+ +'<div class="er" id="er"></div>'
+ +'<input class="fld" type="text" id="fn" placeholder="Ton prénom" autocomplete="given-name">'
+ +'<input class="fld" type="email" id="em" placeholder="Ton email" autocomplete="email" inputmode="email">'
+ +'<button class="cta" id="snd">Recevoir mon plan personnalisé</button>'
+ +'<p class="lg">Tes réponses restent confidentielles. Désinscription en 1 clic.</p></div>');
+ setTimeout(function(){var g=document.getElementById('gg');if(g)g.style.width=(b*10)+'%'},250);
+ document.getElementById('snd').onclick=function(){submit(best,b)};
+ document.getElementById('em').addEventListener('keydown',function(e){if(e.key==='Enter')submit(best,b)});
 }
 
 function submit(prof,b){
-var fn=(document.getElementById('fn').value||'').trim();
-var em=(document.getElementById('em').value||'').trim();
-var er=document.getElementById('er');
-if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){er.textContent="Verifie ton adresse email.";er.style.display='block';return}
-er.style.display='none';
-var btn=document.getElementById('snd');btn.disabled=true;btn.textContent="Envoi en cours…";
-fb('CompleteRegistration',{content_category:prof});
-var dest=CHECKOUT_URL+'?p='+prof+'&b='+b+(em?'&e='+encodeURIComponent(em):'');
-if(!SIO_OPTIN_URL){try{localStorage.removeItem('llr_st')}catch(e){}location.href=dest;return}
-var fd=new FormData();fd.append('email',em);fd.append('first_name',fn);
-for(var k in SIO_FIELDS){fd.append(k,SIO_FIELDS[k])}
-fetch(SIO_OPTIN_URL,{method:'POST',body:fd,mode:'no-cors'}).catch(function(){}).then(function(){
-try{localStorage.removeItem('llr_st')}catch(e){}location.href=dest});
-setTimeout(function(){location.href=dest},2600);
+ var fn=(document.getElementById('fn').value||'').trim();
+ var em=(document.getElementById('em').value||'').trim();
+ var er=document.getElementById('er');
+ if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){er.textContent="Vérifie ton adresse email.";er.style.display='block';return}
+ er.style.display='none';
+ var btn=document.getElementById('snd');btn.disabled=true;btn.textContent="Envoi en cours…";
+ fb('CompleteRegistration',{content_category:prof});
+ var dest=CHECKOUT_URL+'?p='+prof+'&b='+b+(em?'&e='+encodeURIComponent(em):'');
+ try{localStorage.removeItem('llr2')}catch(e){}
+ if(!SIO_OPTIN_URL){location.href=dest;return}
+ var fd=new FormData();fd.append('email',em);fd.append('first_name',fn);
+ for(var k in SIO_FIELDS)fd.append(k,SIO_FIELDS[k]);
+ fetch(SIO_OPTIN_URL,{method:'POST',body:fd,mode:'no-cors'}).catch(function(){}).then(function(){location.href=dest});
+ setTimeout(function(){location.href=dest},2500);
 }
 
 if(PIXEL_ID){
@@ -241,6 +326,6 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'
 fbq('init',PIXEL_ID);fbq('track','PageView');
 }
 
-intro();
+if(st.i>=0)step(); else if(st.i===-0.5)proof(); else intro();
 })();
 </script>
