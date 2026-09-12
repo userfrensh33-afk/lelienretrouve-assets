@@ -2,108 +2,49 @@
 
 <style>
 #llr *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-#llr{--bg:#F5F1EA;--card:#FFFFFF;--ink:#1B2433;--soft:#6E7789;--line:#E4DDD1;
---acc:#C4633F;--acc2:#A8502F;--gold:#E8B44A;--ok:#3E9E6B;
-font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-background:var(--bg);color:var(--ink);min-height:100vh;padding:16px 16px 40px;line-height:1.5;
+#llr{--ink:#111827;--soft:#6B7280;--line:#E5E7EB;--acc:#1F5AE0;--accs:#EEF3FF;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#fff;color:var(--ink);min-height:100vh;padding:14px 18px 44px;line-height:1.45;
 -webkit-font-smoothing:antialiased;text-align:left}
-#llr .w{max-width:480px;margin:0 auto}
-
-#llr .top{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
-#llr .top svg{width:30px;height:30px;flex:0 0 30px}
-#llr .top b{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
-#llr .top b i{font-style:normal;color:var(--acc)}
-
-#llr .nav{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-#llr .back{width:28px;height:28px;flex:0 0 28px;border:0;background:none;cursor:pointer;color:var(--soft);font-size:22px;line-height:1;padding:0}
-#llr .prog{flex:1;height:5px;background:#E4DDD1;border-radius:5px;overflow:hidden}
-#llr .prog i{display:block;height:100%;width:0;background:var(--acc);border-radius:5px;transition:width .4s ease}
-
-#llr h1{font-size:25px;line-height:1.2;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
-#llr h1 u{text-decoration:none;background:linear-gradient(transparent 62%,rgba(232,180,74,.55) 62%)}
-#llr h2{font-size:21px;line-height:1.28;font-weight:800;letter-spacing:-.015em;margin-bottom:18px}
-#llr .lead{color:var(--soft);font-size:15px;margin-bottom:18px}
-#llr .anti{color:var(--acc2);font-size:14.5px;font-weight:600;margin-bottom:16px}
-#llr .qlab{font-size:17px;font-weight:800;margin:22px 0 12px;text-align:center}
-
-#llr .grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-#llr .ph{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;background:var(--card);
-border:2px solid transparent;box-shadow:0 2px 8px rgba(27,36,51,.08);transition:.15s}
-#llr .ph:active{transform:scale(.98)}
-#llr .ph.on{border-color:var(--acc)}
-#llr .ph img{width:100%;height:118px;object-fit:cover;display:block}
-#llr .ph span{display:flex;align-items:center;justify-content:space-between;gap:6px;
-padding:10px 11px;font-size:13.5px;font-weight:700;line-height:1.25;background:var(--card)}
-#llr .ph span:after{content:'›';color:var(--acc);font-size:19px;font-weight:800;flex:0 0 auto}
-
-#llr .opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:var(--card);
-border:1.5px solid var(--line);color:var(--ink);border-radius:13px;padding:15px 14px;margin-bottom:10px;
-font-size:15.5px;font-weight:600;cursor:pointer;transition:.15s;font-family:inherit;line-height:1.35;
-box-shadow:0 1px 4px rgba(27,36,51,.05)}
-#llr .opt:active{transform:scale(.99)}
-#llr .opt.on{border-color:var(--acc);background:#FFF7F3}
-#llr .opt em{font-style:normal;font-size:20px;flex:0 0 24px;text-align:center}
-#llr .opt .bx{margin-left:auto;width:21px;height:21px;flex:0 0 21px;border:1.5px solid #CFC7B8;border-radius:6px;position:relative}
-#llr .opt.on .bx{background:var(--acc);border-color:var(--acc)}
-#llr .opt.on .bx:after{content:'';position:absolute;left:6px;top:3px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-#llr .opt .ch{margin-left:auto;color:var(--acc);font-size:19px;font-weight:800}
-
-#llr .cta{display:block;width:100%;background:var(--gold);color:#2A1C06;border:0;border-radius:40px;
-padding:16px;font-size:16.5px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:18px;
-box-shadow:0 3px 12px rgba(232,180,74,.4)}
-#llr .cta:active{transform:scale(.99)}
-#llr .cta[disabled]{opacity:.4;box-shadow:none}
-#llr .ghost{background:none;border:0;color:var(--soft);font-size:14px;font-family:inherit;
+#llr .w{max-width:440px;margin:0 auto}
+#llr .bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin:4px 0 26px}
+#llr .bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .35s ease}
+#llr .brand{font-size:13px;font-weight:700;color:var(--soft);letter-spacing:.02em;text-align:center;margin-bottom:10px}
+#llr h1{font-size:26px;line-height:1.22;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+#llr h2{font-size:21px;line-height:1.28;font-weight:700;letter-spacing:-.01em;margin-bottom:20px}
+#llr p.l{color:var(--soft);font-size:15.5px;margin-bottom:22px}
+#llr .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+color:var(--ink);border-radius:10px;padding:16px;margin-bottom:10px;font-size:16px;font-weight:500;
+cursor:pointer;font-family:inherit;line-height:1.35;transition:border-color .12s,background .12s}
+#llr .opt:active{background:#FAFAFA}
+#llr .opt.on{border-color:var(--acc);background:var(--accs)}
+#llr .cta{display:block;width:100%;background:var(--acc);color:#fff;border:0;border-radius:10px;
+padding:17px;font-size:16.5px;font-weight:700;font-family:inherit;cursor:pointer;margin-top:16px}
+#llr .cta[disabled]{opacity:.35}
+#llr .gh{background:none;border:0;color:var(--soft);font-size:14px;font-family:inherit;
 text-decoration:underline;cursor:pointer;display:block;margin:14px auto 0;padding:6px}
-
-#llr .tst{background:var(--card);border-radius:14px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px rgba(27,36,51,.07)}
-#llr .tst .st{color:#E8B44A;font-size:14px;letter-spacing:2px;margin-bottom:7px}
-#llr .tst h4{font-size:15px;font-weight:800;margin-bottom:6px}
-#llr .tst p{font-size:14.5px;color:#4A5265;margin-bottom:9px}
-#llr .tst .who{font-size:13px;color:var(--soft);font-weight:600}
-#llr .tst .who b{color:var(--ink)}
-
-#llr .ins{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 3px 14px rgba(27,36,51,.09)}
-#llr .ins img{width:100%;height:190px;object-fit:cover;display:block}
-#llr .ins .in{padding:18px}
-#llr .ins p{font-size:15.5px;margin-bottom:11px}
+#llr img.v{width:100%;border-radius:10px;display:block;margin-bottom:18px}
+#llr .ins p{font-size:16px;margin-bottom:13px}
 #llr .ins p:last-child{margin-bottom:0}
-#llr .ins strong{color:var(--acc2)}
-#llr .q{border-left:3px solid var(--gold);padding-left:12px;font-style:italic;color:#4A5265;font-size:15px;margin:12px 0}
-
-#llr .res{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 3px 14px rgba(27,36,51,.09);margin-bottom:16px}
-#llr .res img{width:100%;height:180px;object-fit:cover;display:block}
-#llr .res .in{padding:18px}
-#llr .res p{font-size:15.5px;margin-bottom:11px}
-#llr .res p:last-child{margin-bottom:0}
-#llr .res strong{color:var(--acc2)}
-#llr .badge{display:inline-block;background:#FFF1E8;color:var(--acc2);font-size:12px;font-weight:800;
-letter-spacing:.08em;text-transform:uppercase;padding:6px 11px;border-radius:20px;margin-bottom:12px}
-
-#llr .g{background:var(--card);border-radius:14px;padding:15px;margin-bottom:16px;box-shadow:0 2px 8px rgba(27,36,51,.07)}
-#llr .g .lb{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--soft);font-weight:600;margin-bottom:8px}
-#llr .g .lb b{font-size:19px;color:var(--acc);font-weight:800}
-#llr .g .tr{height:10px;background:#EFE9DE;border-radius:10px;overflow:hidden}
-#llr .g .tr i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--acc));border-radius:10px;transition:width .9s ease}
-#llr .g small{display:block;font-size:13px;color:var(--soft);margin-top:9px;line-height:1.45}
-
-#llr .fld{width:100%;background:#fff;border:1.5px solid var(--line);color:var(--ink);border-radius:12px;
-padding:15px;font-size:16px;font-family:inherit;margin-bottom:10px}
-#llr .fld::placeholder{color:#A7AEBC}
+#llr .ins b{font-weight:700}
+#llr .qt{border-left:3px solid var(--line);padding-left:13px;color:#4B5563;font-size:15.5px;margin:14px 0}
+#llr .kv{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--soft);margin-bottom:7px}
+#llr .kv b{font-size:17px;color:var(--ink)}
+#llr .tr{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-bottom:8px}
+#llr .tr i{display:block;height:100%;width:0;background:var(--acc);transition:width .8s ease}
+#llr small{display:block;font-size:13.5px;color:var(--soft);line-height:1.45}
+#llr .fld{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:16px;font-size:16px;
+font-family:inherit;margin-bottom:10px;color:var(--ink);background:#fff}
+#llr .fld::placeholder{color:#9CA3AF}
 #llr .fld:focus{outline:0;border-color:var(--acc)}
-#llr .lg{font-size:12.5px;color:var(--soft);margin-top:12px;text-align:center;line-height:1.5}
-#llr .er{color:#C0392B;font-size:14px;margin-bottom:8px;display:none;font-weight:600}
-
-#llr .ld{text-align:center;padding:40px 0}
-#llr .ld .ring{width:42px;height:42px;margin:0 auto 20px;border:3px solid #E4DDD1;border-top-color:var(--acc);border-radius:50%;animation:llrs .8s linear infinite}
-@keyframes llrs{to{transform:rotate(360deg)}}
-#llr .ld p{color:#A7AEBC;font-size:15px;margin-bottom:10px;font-weight:600;transition:.35s}
+#llr .lg{font-size:12.5px;color:#9CA3AF;text-align:center;margin-top:12px}
+#llr .er{color:#B91C1C;font-size:14px;font-weight:600;margin-bottom:8px;display:none}
+#llr .ld{padding:48px 0;text-align:center}
+#llr .ld p{color:#9CA3AF;font-size:15.5px;margin-bottom:12px;font-weight:500}
 #llr .ld p.on{color:var(--ink)}
-#llr .ld p.on:before{content:'✓ ';color:var(--ok)}
-
-#llr .sc{animation:llrin .3s ease}
-@keyframes llrin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media(max-width:360px){#llr h1{font-size:22px}#llr .ph img{height:100px}}
+#llr .ld p.on:before{content:'✓ ';color:var(--acc);font-weight:700}
+#llr hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+@media(max-width:360px){#llr h1{font-size:23px}}
 </style>
 
 <script>
@@ -114,190 +55,141 @@ var PIXEL_ID="";
 var CHECKOUT_URL="/commande";
 var CDN="https://cdn.jsdelivr.net/gh/userfrensh33-afk/lelienretrouve-assets@main/img/";
 
-var LOGO='<svg viewBox="0 0 64 64" fill="none" aria-hidden="true">'
-+'<path d="M40 17a15 15 0 1 0 0 30" stroke="#C4633F" stroke-width="5" stroke-linecap="round"/>'
-+'<path d="M24 17a15 15 0 1 1 0 30" stroke="#1B2433" stroke-width="5" stroke-linecap="round"/>'
-+'<circle cx="32" cy="32" r="3.4" fill="#E8B44A"/></svg>';
-
-/* Q1 = cartes photo (détermine le profil). Le reste = boutons. */
-var P1=[
- {img:"profil-forteresse.jpg",t:"Il s'enferme, ne me parle plus",k:"F"},
- {img:"profil-orage.jpg",t:"Les clashs, l'insolence",k:"O"},
- {img:"profil-brasdefer.jpg",t:"La bataille des écrans",k:"B"},
- {img:"profil-courantdair.jpg",t:"Il vit sa vie, je n'existe plus",k:"C"}
-];
-
 var Q=[
+ {k:"prof",q:"Aujourd'hui, c'est quoi le plus dur avec ton ado ?",a:[
+  ["Il s'enferme et ne me parle presque plus","F"],
+  ["Les clashs, l'insolence, parfois les insultes","O"],
+  ["La bataille des écrans, sans fin","B"],
+  ["Il vit sa vie, je ne compte plus","C"]]},
  {k:"age",q:"Ton ado a quel âge ?",a:[
-  ["","11-13 ans, ça commence"],["","14-15 ans, en plein dedans"],
-  ["","16-17 ans, ça dure et ça s'aggrave"],["","18 ans et plus, toujours sous mon toit"]]},
- {k:"obj",q:"Qu'est-ce que tu aimerais retrouver en premier ?",a:[
-  ["💬","Qu'on se parle à nouveau, vraiment"],["🕊️","La sérénité à la maison, sans crier"],
-  ["🤝","La complicité qu'on avait avant"],["😮‍💨","Ne plus avoir cette boule au ventre le soir"]]},
+  ["11-13 ans"],["14-15 ans"],["16-17 ans"],["18 ans et plus"]]},
+ {k:"dur",q:"Depuis combien de temps ça dure ?",a:[
+  ["Quelques mois"],["Environ un an"],["Plusieurs années"]]},
  {ins:1},
- {k:"seul",q:"Et toi, tu gères ça comment ?",a:[
-  ["","Seule, la plupart du temps"],["","En couple, mais pas alignés"],
-  ["","En couple, alignés mais dépassés"],["","En garde alternée, chez l'autre tout est permis"]]},
- {k:"mom",q:"Le moment où ça dérape le plus souvent ?",a:[
-  ["","Le soir, au moment des écrans"],["","À table"],
-  ["","Les devoirs et l'école"],["","N'importe quand, un mot de travers et ça explose"]]},
+ {k:"obj",q:"Qu'est-ce que tu veux retrouver en premier ?",a:[
+  ["Qu'on se parle à nouveau"],["La sérénité à la maison"],
+  ["La complicité qu'on avait avant"],["Ne plus avoir la boule au ventre le soir"]]},
+ {k:"seul",q:"Tu gères ça comment ?",a:[
+  ["Seule, la plupart du temps"],["En couple, mais pas alignés"],
+  ["En couple, alignés mais dépassés"],["En garde alternée"]]},
+ {k:"mom",q:"Ça dérape le plus souvent quand ?",a:[
+  ["Le soir, au moment des écrans"],["À table"],["Les devoirs, l'école"],
+  ["N'importe quand : un mot et ça explose"]]},
  {k:"try",q:"Qu'est-ce que tu as déjà essayé ?",multi:true,a:[
-  ["","Confisquer le téléphone"],["","Punir, priver de sortie"],
-  ["","Le dialogue calme, qui finit en monologue"],["","Un psy"],
-  ["","Les livres et les vidéos de parentalité"],["","Céder, pour avoir la paix"]]},
+  ["Confisquer le téléphone"],["Punir, priver de sortie"],
+  ["Le dialogue calme"],["Un psy"],["Les livres, les vidéos"],["Céder pour avoir la paix"]]},
  {k:"esc",q:"Quand tu poses une limite, il se passe quoi ?",a:[
-  ["","Explosion immédiate, portes qui claquent",3],
-  ["","Il attend que je craque, et je craque",3],
-  ["","Il contourne dans mon dos",2],
-  ["","Rien. Silence total. Et c'est presque pire.",2]]},
+  ["Explosion, portes qui claquent",3],["Il attend que je craque, et je craque",3],
+  ["Il contourne dans mon dos",2],["Silence total. Et c'est presque pire.",2]]},
  {k:"pos",q:"Sois honnête : tu te reconnais où ?",a:[
-  ["","Je serre la vis, puis je lâche, puis je resserre",4],
-  ["","Je cède plus que je voudrais, pour éviter le clash",3],
-  ["","Je suis devenue plus dure que je ne voudrais l'être",3],
-  ["","J'ai un peu renoncé, je subis",2]]},
+  ["Je serre la vis, puis je lâche, puis je resserre",4],
+  ["Je cède plus que je voudrais",3],
+  ["Je suis devenue plus dure que je ne voudrais",3],
+  ["J'ai un peu renoncé, je subis",2]]},
  {ins:2},
- {k:"phr",q:"Quelle phrase ressemble le plus à ton quotidien ?",a:[
-  ["","« Quoi que je fasse, j'ai toujours tort »"],
-  ["","« À côté des gens c'est un ange, personne ne voit ce que je vis »"],
-  ["","« On était fusionnels avant, je ne le reconnais plus »"],
-  ["","« Je suis à bout, je ne sais plus à quelle porte frapper »"]]},
  {k:"peur",q:"Ta plus grande peur, au fond ?",a:[
-  ["","Qu'il finisse mal"],["","Que le lien se casse pour de bon, même adulte"],
-  ["","De ne pas tenir moi-même"],["","Que les petits frères et sœurs en payent le prix"]]},
+  ["Qu'il finisse mal"],["Que le lien se casse définitivement"],
+  ["De ne pas tenir moi-même"],["Que ses frères et sœurs en payent le prix"]]},
  {ins:3},
- {k:"pret",q:"Si on te donnait les mots exacts à dire, et ceux à ne plus jamais dire, tu testerais dès ce soir ?",a:[
-  ["","Oui, ce soir même"],["","Oui, mais j'ai peur que ça ne marche pas avec le mien"],
-  ["","Oui, si ça ne me prend pas des heures, je suis épuisée"]]}
+ {k:"pret",q:"Si on te donnait les mots exacts à dire ce soir, tu essaierais ?",a:[
+  ["Oui, ce soir même"],["Oui, mais j'ai peur que ça ne marche pas"],
+  ["Oui, si ça ne me prend pas des heures"]]}
 ];
 
 var INS={
- 1:{img:"insight-1-pas-seule.jpg",h:"Tu n'es pas seule dans ta cuisine ce soir.",
-  b:"<p>Nous avons analysé <strong>2 046 témoignages</strong> de parents d'ados francophones. Le mot qui revient le plus n'est ni « insolence » ni « écrans ».</p><p>C'est <strong>« démunie »</strong>.</p><p>Ce que tu vis a une mécanique précise. Et une mécanique, ça se répare.</p>"},
- 2:{img:"insight-2-bascule.jpg",h:"Ce que tu viens de décrire porte un nom : la Bascule.",
-  b:"<p>Un coup on serre, un coup on lâche. Pas par faiblesse : par épuisement.</p><p>Le problème, c'est qu'à chaque aller-retour ton ado apprend une seule chose : <strong>le lien avec toi n'est pas un endroit sûr</strong>.</p><p>Ce n'est pas toi le problème. C'est la Bascule. Et elle se désamorce.</p>"},
+ 1:{img:"insight-1-pas-seule.jpg",h:"Tu n'es pas seule.",
+  b:"<p>Nous avons analysé <b>2 046 témoignages</b> de parents d'ados. Le mot qui revient le plus n'est ni « insolence » ni « écrans ». C'est <b>« démunie »</b>.</p><p>Ce que tu vis a une mécanique précise. Et une mécanique, ça se répare.</p>"},
+ 2:{img:"insight-2-bascule.jpg",h:"Ce que tu décris a un nom : la Bascule.",
+  b:"<p>Un coup on serre, un coup on lâche. Pas par faiblesse : par épuisement.</p><p>À chaque aller-retour, ton ado apprend une seule chose : <b>le lien avec toi n'est pas un endroit sûr</b>.</p><p>Ce n'est pas toi le problème. C'est la Bascule.</p>"},
  3:{img:"insight-3-espoir.jpg",h:"Le lien ne meurt pas à l'adolescence.",
-  b:"<div class='q'>« J'ai vécu 5 ans très difficiles avec ma fille. Aujourd'hui, la vie à la maison n'a plus rien à voir. »</div><div class='q'>« Il a 23 ans maintenant : un travail, un appartement, une copine. Ne lâchez pas. »</div><p>Il se met en veille. Plus qu'une question et tu sauras comment rallumer le tien.</p>"}
+  b:"<div class='qt'>« J'ai vécu 5 ans très difficiles avec ma fille. Aujourd'hui, la vie à la maison n'a plus rien à voir. »</div><div class='qt'>« Il a 23 ans : un travail, un appartement, une copine. Ne lâchez pas. »</div><p>Il se met en veille. Plus qu'une question.</p>"}
 };
 
 var PROF={
- F:{n:"La Forteresse",img:"profil-forteresse.jpg",
-  t:"<p>Ton ado ne te rejette pas : il s'est mis à l'abri.</p><p>Quelque part en chemin, son cerveau a associé « parler à maman » à « prendre un coup » : une remarque, un conseil donné trop vite, une réaction trop forte au mauvais moment. Il ne s'en souvient même plus. Mais la porte s'est fermée.</p><p><strong>Une forteresse a toujours une porte.</strong> Elle ne s'ouvre pas en insistant ni en posant plus de questions : elle s'ouvre en changeant 3 gestes précis dans tes 10 premières secondes d'interaction.</p>"},
- O:{n:"L'Orage",img:"profil-orage.jpg",
-  t:"<p>Chez vous, le problème n'est pas le conflit. C'est <strong>la boucle</strong> : tu montes le ton, il se braque, tu regrettes, et demain ça recommence à l'identique.</p><p>Un orage ne se gagne pas à la force. Il se désamorce avant d'éclater, et il existe un point précis, environ 20 secondes avant l'explosion, où tout peut encore basculer dans l'autre sens.</p>"},
- B:{n:"Le Bras de Fer",img:"profil-brasdefer.jpg",
-  t:"<p>Tu ne te bats pas contre un téléphone. Tu te bats contre <strong>une négociation permanente</strong>, où chaque règle devient un contrat à renégocier.</p><p>La guerre des écrans, personne ne l'a jamais gagnée par la confiscation : il contourne, et tu perds la confiance en plus. Ce qui marche, c'est de sortir du rapport de force, pas de le durcir.</p>"},
- C:{n:"Le Courant d'Air",img:"profil-courantdair.jpg",
-  t:"<p>Chez toi, il n'y a ni cri ni porte qui claque. Il y a <strong>une absence</strong> : il rentre, il repart, il consomme la maison comme un hôtel.</p><p>C'est le profil le plus silencieux et le plus trompeur, parce qu'on se dit « au moins il n'y a pas de conflit ». Mais l'indifférence n'est pas la paix. Elle se renverse par des micro-moments, jamais par une grande conversation.</p>"}
+ F:{n:"Forteresse",img:"profil-forteresse.jpg",
+  t:"<p>Ton ado ne te rejette pas : il s'est mis à l'abri. Quelque part, son cerveau a associé « parler à toi » à « prendre un coup » : une remarque, un conseil trop rapide, une réaction trop forte. Il ne s'en souvient même plus. Mais la porte s'est fermée.</p><p><b>Une forteresse a toujours une porte.</b> Elle ne s'ouvre pas en insistant : elle s'ouvre en changeant 3 gestes précis dans tes 10 premières secondes d'interaction.</p>"},
+ O:{n:"Orage",img:"profil-orage.jpg",
+  t:"<p>Le problème n'est pas le conflit. C'est <b>la boucle</b> : tu montes le ton, il se braque, tu regrettes, et demain ça recommence à l'identique.</p><p>Un orage ne se gagne pas à la force : il se désamorce avant d'éclater. Il existe un point précis, environ 20 secondes avant l'explosion, où tout peut encore basculer.</p>"},
+ B:{n:"Bras de fer",img:"profil-brasdefer.jpg",
+  t:"<p>Tu ne te bats pas contre un téléphone, mais contre <b>une négociation permanente</b> où chaque règle devient un contrat à renégocier.</p><p>Personne n'a jamais gagné la guerre des écrans par la confiscation : il contourne, et tu perds la confiance en plus. Ce qui marche, c'est de sortir du rapport de force.</p>"},
+ C:{n:"Courant d'air",img:"profil-courantdair.jpg",
+  t:"<p>Chez toi il n'y a ni cri ni porte qui claque. Il y a <b>une absence</b> : il rentre, il repart, il consomme la maison comme un hôtel.</p><p>C'est le profil le plus trompeur, parce qu'on se dit « au moins il n'y a pas de conflit ». Mais l'indifférence n'est pas la paix. Elle se renverse par des micro-moments, jamais par une grande conversation.</p>"}
 };
 
-var TST=[
- {t:"Je n'osais en parler à personne",p:"Je pensais être la seule à vivre ça. Lire les mots des autres mères m'a enlevé un poids énorme, avant même de commencer quoi que ce soit.",w:"Karine",q:"maman d'un garçon de 15 ans"},
- {t:"J'ai compris que j'oscillais",p:"Je passais mes soirées entre crier et laisser tomber. Mettre un nom sur ce que je faisais a tout changé dans ma façon de lui répondre.",w:"Sylvie",q:"maman d'une fille de 14 ans"},
- {t:"La porte s'est rouverte",p:"Il ne répondait plus que par oui et non. Trois semaines après avoir changé ma façon d'entrer dans sa chambre, il est venu me parler de lui-même.",w:"Nathalie",q:"maman d'un garçon de 16 ans"}
-];
-
-var st={i:-1,ans:{},score:{F:0,O:0,B:0,C:0},basc:0,multi:[],hist:[]};
+var st={i:-1,ans:{},score:{F:0,O:0,B:0,C:0},basc:0,multi:[]};
 var app=document.getElementById('llr');
-try{var s=localStorage.getItem('llr2');if(s){var o=JSON.parse(s);if(o&&typeof o.i==='number'&&o.i<Q.length)st=o}}catch(e){}
-function save(){try{localStorage.setItem('llr2',JSON.stringify(st))}catch(e){}}
-function fb(ev,d){try{if(window.fbq)fbq('track',ev,d||{})}catch(e){}}
-var TOT=11;
-function nQ(i){var c=0;for(var j=0;j<=i&&j<Q.length;j++){if(!Q[j].ins)c++}return c+1}
-function logo(){return '<div class="top">'+LOGO+'<b>Le Lien <i>Retrouvé</i></b></div>'}
-function nav(pct){return '<div class="nav"><button class="back" id="bk">←</button><div class="prog"><i style="width:'+pct+'%"></i></div></div>'}
-function render(h){app.innerHTML='<div class="w">'+h+'</div>';window.scrollTo(0,0);
-var b=document.getElementById('bk');if(b)b.onclick=back}
-function back(){if(st.i<=-1)return;st.i--;if(st.i===-1){intro();return}save();step()}
+try{var s=localStorage.getItem('llr3');if(s){var o=JSON.parse(s);if(o&&typeof o.i==='number'&&o.i<Q.length)st=o}}catch(e){}
+function save(){try{localStorage.setItem('llr3',JSON.stringify(st))}catch(e){}}
+function fb(e,d){try{if(window.fbq)fbq('track',e,d||{})}catch(x){}}
+function nb(){var c=0;for(var j=0;j<Q.length;j++)if(!Q[j].ins)c++;return c}
+var NQ=nb();
+function idx(i){var c=0;for(var j=0;j<i;j++)if(!Q[j].ins)c++;return c+1}
+function shell(pct,inner){return '<div class="brand">LE LIEN RETROUVÉ</div>'
+ +(pct===null?'':'<div class="bar"><i style="width:'+pct+'%"></i></div>')+inner}
+function render(h){app.innerHTML='<div class="w">'+h+'</div>';window.scrollTo(0,0)}
 
-/* ---------- écran 1 : accroche + Q1 photo ---------- */
 function intro(){
- var h=logo()
- +'<div class="sc"><h1>Ton ado s\'éloigne ? <u>Retrouve le lien</u> sans crier, sans forcer.</h1>'
- +'<p class="anti">Sans le priver de tout. Sans des mois de thérapie.</p>'
- +'<p class="lead">Fais le test de 2 minutes : tu découvres ce qui ferme vraiment votre lien, et les 3 premiers gestes pour le rouvrir dès ce soir.</p>'
- +'<p class="qlab">Aujourd\'hui, c\'est quoi le plus dur ?</p><div class="grid">';
- P1.forEach(function(p,n){h+='<div class="ph" data-n="'+n+'"><img src="'+CDN+p.img+'" alt=""><span>'+p.t+'</span></div>'});
- h+='</div><p class="lg">Gratuit et anonyme. Sans jugement.</p></div>';
- render(h);
- var c=app.querySelectorAll('.ph');
- Array.prototype.forEach.call(c,function(el){el.onclick=function(){
-  var n=+el.getAttribute('data-n');el.classList.add('on');
-  st.score[P1[n].k]+=3;st.ans.prof=P1[n].k;fb('ViewContent',{content_name:'quiz_start'});
-  setTimeout(function(){st.i=-0.5;save();proof()},220)}});
+ render(shell(null,'<h1>Ton ado s\'éloigne et tu ne sais plus quoi faire ?</h1>'
+ +'<p class="l">Réponds à 12 questions (2 minutes). Tu découvres ce qui ferme vraiment votre lien, et les 3 premiers gestes pour le rouvrir dès ce soir.</p>'
+ +'<button class="cta" id="go">Commencer le test</button>'
+ +'<p class="lg">Gratuit, anonyme, sans jugement.</p>'));
+ document.getElementById('go').onclick=function(){fb('ViewContent',{content_name:'quiz_start'});st.i=0;save();step()};
 }
 
-/* ---------- écran 2 : preuve ---------- */
-function proof(){
- var h=logo()+nav(8)+'<div class="sc"><h2>Tu n\'es pas la seule à vivre ça</h2>'
- +'<p class="lead">Voici ce que des parents dans ta situation nous ont écrit.</p>';
- TST.forEach(function(t){h+='<div class="tst"><div class="st">★★★★★</div><h4>'+t.t+'</h4><p>'+t.p+'</p>'
- +'<div class="who"><b>'+t.w+'</b> · '+t.q+'</div></div>'});
- h+='<button class="cta" id="go">Continuer mon test</button></div>';
- render(h);
- document.getElementById('go').onclick=function(){st.i=0;save();step()};
-}
-
-/* ---------- questions ---------- */
 function step(){
  if(st.i>=Q.length)return calc();
- var it=Q[st.i],pct=10+Math.round(st.i/Q.length*85);
+ var it=Q[st.i],pct=Math.round(st.i/Q.length*100);
  if(it.ins)return insight(it.ins,pct);
- var h=logo()+nav(pct)+'<div class="sc"><h2>'+it.q+'</h2>';
- it.a.forEach(function(a,n){h+='<button class="opt" data-n="'+n+'">'+(a[0]?'<em>'+a[0]+'</em>':'')
- +'<span>'+a[1]+'</span>'+(it.multi?'<span class="bx"></span>':'<span class="ch">›</span>')+'</button>'});
- if(it.multi)h+='<button class="cta" id="nx" disabled>Continuer</button><button class="ghost" id="sk">Aucune de ces réponses</button>';
- h+='</div>';render(h);st.multi=[];
- var opts=app.querySelectorAll('.opt');
- Array.prototype.forEach.call(opts,function(b){b.onclick=function(){
-  var n=+b.getAttribute('data-n');
+ var h='<h2>'+it.q+'</h2>';
+ it.a.forEach(function(a,n){h+='<button class="opt" data-n="'+n+'">'+a[0]+'</button>'});
+ if(it.multi)h+='<button class="cta" id="nx" disabled>Continuer</button><button class="gh" id="sk">Aucune de ces réponses</button>';
+ render(shell(pct,h));st.multi=[];
+ var o=app.querySelectorAll('.opt');
+ Array.prototype.forEach.call(o,function(b){b.onclick=function(){
+  var n=+b.getAttribute('data-n'),a=it.a[n];
   if(it.multi){b.classList.toggle('on');var p=st.multi.indexOf(n);if(p<0)st.multi.push(n);else st.multi.splice(p,1);
-   document.getElementById('nx').disabled=st.multi.length===0;return}
-  Array.prototype.forEach.call(opts,function(x){x.classList.remove('on')});b.classList.add('on');
-  var a=it.a[n];st.ans[it.k]=n;
-  if((it.k==='esc'||it.k==='pos')&&typeof a[2]==='number')st.basc+=a[2];
-  setTimeout(function(){st.i++;save();step()},200)}});
+   document.getElementById('nx').disabled=!st.multi.length;return}
+  Array.prototype.forEach.call(o,function(x){x.classList.remove('on')});b.classList.add('on');
+  st.ans[it.k]=n;
+  if(it.k==='prof'&&a[1])st.score[a[1]]+=3;
+  if((it.k==='esc'||it.k==='pos')&&typeof a[1]==='number')st.basc+=a[1];
+  setTimeout(function(){st.i++;save();step()},170)}});
  if(it.multi){document.getElementById('nx').onclick=function(){st.ans[it.k]=st.multi.slice();st.i++;save();step()};
   document.getElementById('sk').onclick=function(){st.ans[it.k]=[];st.i++;save();step()}}
 }
 
-/* ---------- insights ---------- */
 function insight(id,pct){var d=INS[id];
- render(logo()+nav(pct)+'<div class="sc"><div class="ins"><img src="'+CDN+d.img+'" alt="">'
- +'<div class="in"><h2 style="margin-bottom:12px">'+d.h+'</h2>'+d.b+'</div></div>'
- +'<button class="cta" id="ok">J\'ai compris, je continue</button></div>');
+ render(shell(pct,'<img class="v" src="'+CDN+d.img+'" alt="">'
+ +'<h2>'+d.h+'</h2><div class="ins">'+d.b+'</div>'
+ +'<button class="cta" id="ok">Continuer</button>'));
  document.getElementById('ok').onclick=function(){st.i++;save();step()};
 }
 
-/* ---------- calcul ---------- */
 function calc(){
- var m=['Analyse de tes réponses','Profil de votre lien identifié','Position sur la Bascule calculée','Tes 3 premiers gestes sélectionnés'];
- render(logo()+nav(100)+'<div class="sc"><div class="ld"><div class="ring"></div>'
- +m.map(function(x,i){return '<p id="m'+i+'">'+x+'</p>'}).join('')+'</div></div>');
- m.forEach(function(x,i){setTimeout(function(){var e=document.getElementById('m'+i);if(e)e.classList.add('on')},i*600)});
- setTimeout(result,2800);
+ var m=['Analyse de tes réponses','Profil de votre lien identifié','Niveau de Bascule calculé','Tes 3 premiers gestes sélectionnés'];
+ render(shell(100,'<div class="ld">'+m.map(function(x,i){return '<p id="m'+i+'">'+x+'</p>'}).join('')+'</div>'));
+ m.forEach(function(x,i){setTimeout(function(){var e=document.getElementById('m'+i);if(e)e.classList.add('on')},i*560)});
+ setTimeout(result,2600);
 }
 
-/* ---------- résultat ---------- */
 function result(){
- var best=st.ans.prof||'F',mx=-1;
- for(var k in st.score){if(st.score[k]>mx){mx=st.score[k];best=k}}
+ var best='F',mx=-1;for(var k in st.score)if(st.score[k]>mx){mx=st.score[k];best=k}
  var p=PROF[best],b=Math.min(10,Math.max(3,st.basc));
  fb('Lead',{content_name:'quiz_result',content_category:p.n});
- render(logo()
- +'<div class="sc"><div class="badge">Ton résultat</div>'
- +'<h1>Votre lien est en mode <u>'+p.n+'</u></h1>'
- +'<div class="res"><img src="'+CDN+p.img+'" alt=""><div class="in">'+p.t+'</div></div>'
- +'<div class="g"><div class="lb"><span>Ton niveau sur la Bascule</span><b>'+b+'/10</b></div>'
+ render(shell(null,'<h1>Votre lien est en mode « '+p.n+' »</h1>'
+ +'<img class="v" src="'+CDN+p.img+'" alt="">'
+ +'<div class="ins">'+p.t+'</div><hr>'
+ +'<div class="kv"><span>Ton niveau sur la Bascule</span><b>'+b+'/10</b></div>'
  +'<div class="tr"><i id="gg"></i></div>'
- +'<small>Plus tu oscilles entre fermeté et lâcher-prise, plus la porte reste fermée. C\'est le premier levier à corriger.</small></div>'
+ +'<small>Plus tu oscilles entre fermeté et lâcher-prise, plus la porte reste fermée. C\'est le premier levier à corriger.</small><hr>'
  +'<h2>Ton plan personnalisé est prêt</h2>'
- +'<p class="lead">Les scripts mot à mot pour un lien en mode <b>'+p.n+'</b>, le protocole 14 jours pour sortir de la Bascule, et les 7 phrases qui referment tout, à ne plus jamais dire.</p>'
+ +'<p class="l">Les scripts mot à mot pour un lien en mode « '+p.n+' », le protocole 14 jours pour sortir de la Bascule, et les 7 phrases qui referment tout.</p>'
  +'<div class="er" id="er"></div>'
- +'<input class="fld" type="text" id="fn" placeholder="Ton prénom" autocomplete="given-name">'
- +'<input class="fld" type="email" id="em" placeholder="Ton email" autocomplete="email" inputmode="email">'
- +'<button class="cta" id="snd">Recevoir mon plan personnalisé</button>'
- +'<p class="lg">Tes réponses restent confidentielles. Désinscription en 1 clic.</p></div>');
- setTimeout(function(){var g=document.getElementById('gg');if(g)g.style.width=(b*10)+'%'},250);
+ +'<input class="fld" type="text" id="fn" placeholder="Prénom" autocomplete="given-name">'
+ +'<input class="fld" type="email" id="em" placeholder="Email" autocomplete="email" inputmode="email">'
+ +'<button class="cta" id="snd">Recevoir mon plan</button>'
+ +'<p class="lg">Tes réponses restent confidentielles. Désinscription en 1 clic.</p>'));
+ setTimeout(function(){var g=document.getElementById('gg');if(g)g.style.width=(b*10)+'%'},220);
  document.getElementById('snd').onclick=function(){submit(best,b)};
  document.getElementById('em').addEventListener('keydown',function(e){if(e.key==='Enter')submit(best,b)});
 }
@@ -308,10 +200,10 @@ function submit(prof,b){
  var er=document.getElementById('er');
  if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){er.textContent="Vérifie ton adresse email.";er.style.display='block';return}
  er.style.display='none';
- var btn=document.getElementById('snd');btn.disabled=true;btn.textContent="Envoi en cours…";
+ var btn=document.getElementById('snd');btn.disabled=true;btn.textContent="Envoi…";
  fb('CompleteRegistration',{content_category:prof});
  var dest=CHECKOUT_URL+'?p='+prof+'&b='+b+(em?'&e='+encodeURIComponent(em):'');
- try{localStorage.removeItem('llr2')}catch(e){}
+ try{localStorage.removeItem('llr3')}catch(e){}
  if(!SIO_OPTIN_URL){location.href=dest;return}
  var fd=new FormData();fd.append('email',em);fd.append('first_name',fn);
  for(var k in SIO_FIELDS)fd.append(k,SIO_FIELDS[k]);
@@ -326,6 +218,6 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'
 fbq('init',PIXEL_ID);fbq('track','PageView');
 }
 
-if(st.i>=0)step(); else if(st.i===-0.5)proof(); else intro();
+if(st.i>=0)step();else intro();
 })();
 </script>
