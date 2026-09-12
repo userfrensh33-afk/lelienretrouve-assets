@@ -59,11 +59,18 @@ cursor:pointer;display:block;margin:13px auto 0;padding:6px}
 #llr .qt{border-left:3px solid var(--gold);padding-left:12px;font-style:italic;color:var(--soft);font-size:14.5px;margin:12px 0}
 
 #llr .tst{background:#fff;border-radius:12px;padding:14px;margin-bottom:10px;box-shadow:0 2px 6px rgba(31,41,55,.09)}
-#llr .tst .st{color:var(--gold2);font-size:13px;letter-spacing:2px;margin-bottom:6px}
+#llr .tst .hd{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+#llr .tst .av{width:42px;height:42px;flex:0 0 42px;border-radius:50%;object-fit:cover;display:block}
+#llr .tst .hi{min-width:0}
+#llr .tst .st{display:block;line-height:0;margin-bottom:4px}
 #llr .tst h4{font-size:14.5px;font-weight:800;margin-bottom:5px}
 #llr .tst p{font-size:14px;color:var(--soft);margin-bottom:8px}
 #llr .tst .who{font-size:12.5px;color:var(--mute)}
 #llr .tst .who b{color:var(--ink);font-weight:800}
+#llr .tst .vf{display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:700;color:#00875A;margin-top:2px}
+#llr .pct{font-size:46px;font-weight:800;color:var(--deep);letter-spacing:-.03em;line-height:1;margin-bottom:6px}
+#llr .pct span{font-size:22px;font-weight:700;color:var(--mute);margin-left:2px}
+#llr .ld .sub{font-size:13.5px;color:var(--mute);margin-bottom:22px;font-weight:600}
 
 #llr .gg{background:#fff;border-radius:12px;padding:14px;margin:14px 0;box-shadow:0 2px 6px rgba(31,41,55,.09)}
 #llr .gg .kv{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--soft);margin-bottom:7px}
@@ -105,6 +112,8 @@ var CDN="https://cdn.jsdelivr.net/gh/userfrensh33-afk/lelienretrouve-assets@main
 var LOGO='<svg viewBox="0 0 64 64" fill="none" aria-hidden="true">'
 +'<path d="M6 20a8 8 0 0 1 8-8h20a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H22l-9 7v-7h-1a6 6 0 0 1-6-6V20Z" fill="#2C3E66"/>'
 +'<path d="M58 34a7 7 0 0 0-7-7H40v3a11 11 0 0 1-11 11h-2a7 7 0 0 0 7 6h11l8 6v-6a7 7 0 0 0 5-7v-6Z" fill="#E0A32B"/></svg>';
+
+var STARS='<svg viewBox="0 0 103 19" width="103" height="19" aria-hidden="true"><g transform="translate(0,0)"><rect width="19" height="19" rx="2" fill="#00B67A"/><path d="M9.5 3.4l1.8 3.8h4L12 9.9l1.1 4.1-3.6-2.4-3.6 2.4L7 9.9 3.7 7.2h4z" fill="#fff"/></g><g transform="translate(21,0)"><rect width="19" height="19" rx="2" fill="#00B67A"/><path d="M9.5 3.4l1.8 3.8h4L12 9.9l1.1 4.1-3.6-2.4-3.6 2.4L7 9.9 3.7 7.2h4z" fill="#fff"/></g><g transform="translate(42,0)"><rect width="19" height="19" rx="2" fill="#00B67A"/><path d="M9.5 3.4l1.8 3.8h4L12 9.9l1.1 4.1-3.6-2.4-3.6 2.4L7 9.9 3.7 7.2h4z" fill="#fff"/></g><g transform="translate(63,0)"><rect width="19" height="19" rx="2" fill="#00B67A"/><path d="M9.5 3.4l1.8 3.8h4L12 9.9l1.1 4.1-3.6-2.4-3.6 2.4L7 9.9 3.7 7.2h4z" fill="#fff"/></g><g transform="translate(84,0)"><rect width="19" height="19" rx="2" fill="#00B67A"/><path d="M9.5 3.4l1.8 3.8h4L12 9.9l1.1 4.1-3.6-2.4-3.6 2.4L7 9.9 3.7 7.2h4z" fill="#fff"/></g></svg>';
 
 var P1=[
  {img:"profil-forteresse.jpg",t:"Il s'enferme, ne me parle plus",k:"F"},
@@ -168,9 +177,9 @@ var PROF={
 };
 
 var TST=[
- {t:"Je n'osais en parler à personne",p:"Je pensais être la seule à vivre ça. Lire les mots des autres mères m'a enlevé un poids énorme.",w:"Karine",q:"maman d'un garçon de 15 ans"},
- {t:"J'ai compris que j'oscillais",p:"Je passais mes soirées entre crier et laisser tomber. Mettre un nom sur ce que je faisais a tout changé.",w:"Sylvie",q:"maman d'une fille de 14 ans"},
- {t:"La porte s'est rouverte",p:"Il ne répondait plus que par oui et non. Trois semaines après avoir changé ma façon d'entrer dans sa chambre, il est venu me parler de lui-même.",w:"Nathalie",q:"maman d'un garçon de 16 ans"}
+ {av:"av-karine.jpg",t:"Je n'osais en parler à personne",p:"Je pensais être la seule à vivre ça. Lire les mots des autres mères m'a enlevé un poids énorme.",w:"Karine",q:"maman d'un garçon de 15 ans"},
+ {av:"av-sylvie.jpg",t:"J'ai compris que j'oscillais",p:"Je passais mes soirées entre crier et laisser tomber. Mettre un nom sur ce que je faisais a tout changé.",w:"Sylvie",q:"maman d'une fille de 14 ans"},
+ {av:"av-nathalie.jpg",t:"La porte s'est rouverte",p:"Il ne répondait plus que par oui et non. Trois semaines après avoir changé ma façon d'entrer dans sa chambre, il est venu me parler de lui-même.",w:"Nathalie",q:"maman d'un garçon de 16 ans"}
 ];
 
 var st={i:-1,ans:{},score:{F:0,O:0,B:0,C:0},basc:0,multi:[]};
@@ -201,8 +210,11 @@ function intro(){
 
 function proof(){
  var h=brand()+bar(8)+'<div class="sc"><h2>Tu n\'es pas la seule à vivre ça</h2>';
- TST.forEach(function(t){h+='<div class="tst"><div class="st">★★★★★</div><h4>'+t.t+'</h4><p>'+t.p+'</p>'
- +'<div class="who"><b>'+t.w+'</b> · '+t.q+'</div></div>'});
+ TST.forEach(function(t){h+='<div class="tst">'
+ +'<div class="hd"><img class="av" src="'+CDN+t.av+'" alt=""><div class="hi">'+STARS
+ +'<div class="who"><b>'+t.w+'</b> · '+t.q+'</div>'
+ +'<div class="vf">\u2713 Avis vérifié</div></div></div>'
+ +'<h4>'+t.t+'</h4><p>'+t.p+'</p></div>'});
  h+='<button class="cta" id="go">Continuer mon test</button></div>';
  render(h);
  document.getElementById('go').onclick=function(){st.i=0;save();step()};
@@ -238,10 +250,20 @@ function insight(id,pct){var d=INS[id];
 
 function calc(){
  var m=['Analyse de tes réponses','Profil de votre lien identifié','Niveau de Bascule calculé','Tes 3 premiers gestes sélectionnés'];
- render(brand()+bar(100)+'<div class="sc"><div class="ld"><div class="ring"></div>'
+ var DUR=3200;
+ render(brand()+bar(100)+'<div class="sc"><div class="ld">'
+ +'<div class="pct" id="pc">0<span>%</span></div>'
+ +'<div class="sub">Construction de ton profil…</div>'
  +m.map(function(x,i){return '<p id="m'+i+'">'+x+'</p>'}).join('')+'</div></div>');
- m.forEach(function(x,i){setTimeout(function(){var e=document.getElementById('m'+i);if(e)e.classList.add('on')},i*560)});
- setTimeout(result,2600);
+ var t0=Date.now();
+ (function tick(){
+  var e=document.getElementById('pc'); if(!e)return;
+  var p=Math.min(100,Math.floor((Date.now()-t0)/DUR*100));
+  e.innerHTML=p+'<span>%</span>';
+  if(p<100){ (window.requestAnimationFrame||function(f){setTimeout(f,40)})(tick) }
+ })();
+ m.forEach(function(x,i){setTimeout(function(){var e=document.getElementById('m'+i);if(e)e.classList.add('on')},400+i*680)});
+ setTimeout(result,DUR+250);
 }
 
 function result(){
