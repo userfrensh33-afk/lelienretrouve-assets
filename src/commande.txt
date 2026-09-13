@@ -58,7 +58,7 @@ border-radius:20px;padding:7px 11px;font-size:12.5px;font-weight:700;color:var(-
 <script>
 (function(){
 /* ====== À RENSEIGNER après création du produit dans Whop ====== */
-var PLAN_ID   = "";                                        // ex: plan_XXXXXXXXX
+var PLAN_ID   = "plan_V9yQwJsg5AEeC";                       // Le Lien Retrouve - Guide (FR) 19,99 EUR
 var RETURN_URL= "https://www.lelienretrouve.fr/merci";      // page post-achat (OTO1 plus tard)
 var PIXEL_ID  = "";
 /* ============================================================= */
