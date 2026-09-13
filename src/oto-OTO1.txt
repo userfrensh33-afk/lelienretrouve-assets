@@ -1,0 +1,190 @@
+<div id="llo"></div>
+
+<style>
+#llo *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+#llo{--bg:#EAF0F7;--ink:#1F2937;--deep:#2C3E66;--blue:#4C6FB5;--gold:#F3C34B;--gold2:#E0A32B;
+--soft:#4B5A76;--mute:#7C8AA5;--line:#D6DEEA;--ok:#00875A;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink);min-height:100vh;padding:14px 18px 40px;line-height:1.45;
+-webkit-font-smoothing:antialiased;text-align:left}
+#llo .w{max-width:460px;margin:0 auto}
+#llo .step{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);
+text-align:center;margin-bottom:12px}
+#llo .step i{font-style:normal;color:var(--mute);font-weight:600;text-transform:none;letter-spacing:0;display:block;margin-top:3px;font-size:12.5px}
+#llo h1{font-size:24px;font-weight:800;line-height:1.22;letter-spacing:-.015em;margin-bottom:10px}
+#llo .lead{font-size:15px;color:var(--soft);margin-bottom:16px}
+#llo h2{font-size:18px;font-weight:800;margin:20px 0 11px}
+#llo .cta{display:block;width:100%;background:var(--gold);color:#3A2A05;border:0;border-radius:30px;
+padding:16px;text-align:center;font-weight:800;font-size:16.5px;font-family:inherit;cursor:pointer;
+box-shadow:0 3px 12px rgba(224,163,43,.32);margin:14px 0 8px;text-decoration:none}
+#llo .cta:active{transform:scale(.99)}
+#llo .cta small{display:block;font-size:12.5px;font-weight:700;opacity:.75;margin-top:2px}
+#llo .no{display:block;width:100%;background:none;border:0;color:var(--mute);font-size:14px;
+font-family:inherit;text-decoration:underline;cursor:pointer;padding:10px;text-align:center}
+#llo .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(31,41,55,.09);margin-bottom:12px}
+#llo .card img{width:100%;border-radius:10px;display:block;margin-bottom:12px}
+#llo .card p{font-size:14.5px;margin-bottom:10px}
+#llo .card p:last-child{margin-bottom:0}
+#llo b{font-weight:800;color:var(--deep)}
+#llo ul{list-style:none;margin-bottom:14px}
+#llo li{display:flex;gap:10px;font-size:14.5px;margin-bottom:10px;align-items:flex-start}
+#llo li:before{content:'\2713';color:var(--ok);font-weight:800;flex:0 0 auto;margin-top:1px}
+#llo .px{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(31,41,55,.09);
+margin-bottom:12px;text-align:center}
+#llo .px .old{font-size:14.5px;color:var(--mute);text-decoration:line-through}
+#llo .px .now{font-size:34px;font-weight:800;color:var(--deep);letter-spacing:-.03em;line-height:1.15}
+#llo .px .mini{font-size:12.5px;color:var(--mute);margin-top:5px}
+#llo .qt{border-left:3px solid var(--gold);padding-left:12px;font-style:italic;color:var(--soft);
+font-size:14.5px;margin:12px 0}
+#llo .gar{background:#F2FBF6;border:1px solid #CBEBD9;border-radius:12px;padding:13px;font-size:14px;
+color:#14532D;margin-bottom:12px}
+#llo .wemb{min-height:400px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(31,41,55,.09);margin-bottom:10px}
+#llo .lg{font-size:12px;color:var(--mute);text-align:center;margin-top:14px;line-height:1.5}
+#llo .hide{display:none}
+</style>
+
+<script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+
+<script>
+(function(){
+/* ============ CONFIG PAR PAGE (une seule ligne à changer) ============ */
+var ECRAN = "OTO1";   /* OTO1 · DOWN · OTO2 · OTO3 */
+/* ==================================================================== */
+
+var CDN="https://cdn.jsdelivr.net/gh/userfrensh33-afk/lelienretrouve-assets@main/img/";
+var PIXEL_ID="";
+var BASE="https://www.lelienretrouve.fr";
+
+var PLANS={OTO1:"plan_T1vDgc3mIUAC4",DOWN:"plan_wo9BlPvw5RawR",OTO2:"plan_LG9yMYsDayIQu",OTO3:"plan_PJYn03046AyXd"};
+
+/* Le 97 € est montré à TOUT LE MONDE (correction du trou structurel de Petit Nuage) */
+var FLUX={
+ OTO1:{oui:"/oto-2",   non:"/oto-1-down"},
+ DOWN:{oui:"/oto-2",   non:"/oto-2?l=1"},
+ OTO2:{oui:"/oto-3",   non:"/oto-3"},
+ OTO3:{oui:"/merci",   non:"/merci"}
+};
+
+var T={
+ OTO1:{
+  etape:"Étape 2 sur 4", sous:"Ton guide arrive par email dans 2 minutes.",
+  h1:"Et le soir où tu ne sais pas quoi dire ?",
+  img:"insight-2-bascule.jpg",
+  intro:"Le guide te donne les scripts. Mais il y aura des soirs où ta situation ne ressemblera à aucun exemple : une phrase que tu n'avais pas prévue, une porte qui claque à un moment où tu ne t'y attendais pas.",
+  corps:"<p>C'est précisément là que les parents abandonnent : pas par manque de méthode, mais parce qu'au moment où ça dérape, <b>on n'a personne à qui demander « qu'est-ce que je réponds, là, maintenant ? »</b></p>"
+        +"<p><b>Le Fil Direct</b>, c'est ça : pendant 30 jours, tu décris la scène par message, et tu reçois <b>la phrase exacte à dire</b>. Pas un conseil général. La phrase.</p>",
+  bullets:["Tu écris quand ça arrive, même à 22 h un dimanche","Tu reçois quoi dire et quoi surtout ne pas dire",
+           "Tu peux envoyer une capture de vos SMS et on te répond dessus","Pendant 30 jours, autant de fois que tu veux"],
+  cite:"« Je passais mes soirées entre crier et laisser tomber. Savoir que je pouvais demander avant de réagir a tout changé. »",
+  oldpx:"Une séance chez un pro : 80 €", px:"47 €", mini:"Paiement unique. 30 jours d'accès.",
+  gar:"<b>Si tu n'écris jamais, tu es remboursée.</b> Tu as 30 jours pour te décider, sans avoir à te justifier.",
+  oui:"Oui, je veux le Fil Direct", ouiSub:"47 € — accès immédiat", non:"Non merci, je préfère faire seule"
+ },
+ DOWN:{
+  etape:"Une dernière chose", sous:"Avant de continuer.",
+  h1:"Et si on essayait juste une semaine ?",
+  img:"insight-1-pas-seule.jpg",
+  intro:"Trente jours, c'est peut-être un engagement que tu n'as pas envie de prendre maintenant. C'est entendable.",
+  corps:"<p>Alors on retire la durée, et on garde l'essentiel : <b>7 jours de Fil Direct</b>, à moitié prix.</p>"
+        +"<p>Sept soirs, c'est assez pour traverser une crise et voir si ça change quelque chose chez toi. Si ça ne change rien, tu auras payé le prix d'un livre.</p>",
+  bullets:["7 jours de réponses aux moments qui dérapent","Les mêmes réponses, la même rapidité","Tu peux passer aux 30 jours plus tard"],
+  cite:"« Trois semaines après avoir changé ma façon d'entrer dans sa chambre, il est venu me parler de lui-même. »",
+  oldpx:"Au lieu de 47 €", px:"24 €", mini:"Paiement unique. 7 jours d'accès.",
+  gar:"<b>Remboursée si ça ne t'aide pas.</b> 30 jours, sans justification.",
+  oui:"D'accord pour 7 jours", ouiSub:"24 € — accès immédiat", non:"Non merci, continuer"
+ },
+ OTO2:{
+  etape:"Étape 3 sur 4", sous:"Il te reste une seule décision.",
+  h1:"Le plan écrit pour <u>ton</u> ado, pas pour un ado moyen",
+  img:"insight-3-espoir.jpg",
+  intro:"Tu as répondu à 12 questions : son âge, ce qui bloque, depuis combien de temps, ce que tu as déjà essayé, où tu en es sur la Bascule.",
+  corps:"<p>Tout ça, aujourd'hui, ne sert qu'à choisir ton profil. <b>On peut en faire bien plus.</b></p>"
+        +"<p>Le <b>Plan Sur-Mesure</b> reprend tes réponses une par une et te rend un plan écrit : quoi faire la semaine 1, la semaine 2, dans quel ordre, et ce qu'il faut arrêter tout de suite parce que ça aggrave ta situation précise.</p>"
+        +"<p>Avec le <b>module Conjoint</b> : quoi faire quand l'autre parent cède, contredit ou sabote. C'est la question qui revient le plus souvent, et aucun guide ne la traite.</p>",
+  bullets:["Un plan écrit bâti sur TES réponses, livré sous 48 h","Semaine par semaine, dans l'ordre, rien à deviner",
+           "Le module Conjoint (ou le parent de l'autre maison)","Ce qu'il faut arrêter immédiatement dans ton cas"],
+  cite:"« Les échanges à la maison sont devenus plus légers, plus apaisés, et chacun retrouve progressivement sa place. »",
+  oldpx:"Un bilan chez un spécialiste : 150 €", px:"97 €", mini:"Paiement unique. Livré sous 48 h.",
+  gar:"<b>Le plan ne te parle pas ? Tu es remboursée.</b> Tu le lis, et tu décides après.",
+  oui:"Oui, je veux mon plan sur-mesure", ouiSub:"97 € — livré sous 48 h", non:"Non merci, continuer"
+ },
+ OTO3:{
+  etape:"Étape 4 sur 4", sous:"La dernière, promis.",
+  h1:"Et pour l'école, on fait quoi ?",
+  img:"ad-2-repas.jpg",
+  intro:"Dans ton test, tu as dit que ça dérapait aussi autour des devoirs et de l'école. C'est le sujet qui revient juste après le lien lui-même.",
+  corps:"<p>Le problème, c'est qu'on aborde l'école exactement comme on aborde le reste : en insistant. Et plus on insiste, plus il décroche.</p>"
+        +"<p><b>Le Plan Décrochage</b> traite ce sujet à part : les notes qui chutent, les devoirs le soir, la motivation à zéro, le « de toute façon je suis nul ».</p>",
+  bullets:["Quoi dire quand il rapporte une mauvaise note","Comment arrêter la guerre des devoirs sans lâcher l'école",
+           "Que faire quand il dit « ça sert à rien »","Quand s'inquiéter vraiment, et quand attendre"],
+  cite:"« J'ai arrêté de parler des notes pendant deux semaines. Il a recommencé à me raconter ses journées. »",
+  oldpx:"Valeur 67 €", px:"37 €", mini:"Paiement unique. Accès immédiat.",
+  gar:"<b>30 jours pour changer d'avis</b>, sans justification.",
+  oui:"Oui, j'ajoute le Plan Décrochage", ouiSub:"37 € — accès immédiat", non:"Non merci, terminer"
+ }
+};
+
+var d=T[ECRAN]||T.OTO1, plan=PLANS[ECRAN], flux=FLUX[ECRAN];
+var allege=false; try{allege=new URLSearchParams(location.search).get('l')==='1'}catch(e){}
+function qs(k){try{return new URLSearchParams(location.search).get(k)||''}catch(e){return ''}}
+var prof=qs('p'), email=qs('e');
+try{if(!email)email=(JSON.parse(localStorage.getItem('llr_lead')||'{}').e)||''}catch(e){}
+function suite(u){var s=(u.indexOf('?')>-1?'&':'?')+(prof?'p='+encodeURIComponent(prof):'')+(email?'&e='+encodeURIComponent(email):'');return BASE+u+s}
+
+var LOGO='<svg viewBox="0 0 64 64" fill="none" style="width:24px;height:24px;vertical-align:-5px">'
++'<path d="M6 20a8 8 0 0 1 8-8h20a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H22l-9 7v-7h-1a6 6 0 0 1-6-6V20Z" fill="#2C3E66"/>'
++'<path d="M58 34a7 7 0 0 0-7-7H40v3a11 11 0 0 1-11 11h-2a7 7 0 0 0 7 6h11l8 6v-6a7 7 0 0 0 5-7v-6Z" fill="#E0A32B"/></svg>';
+
+var h='<div class="w">'
++'<div class="step">'+LOGO+' '+d.etape+'<i>'+d.sous+'</i></div>'
++'<h1>'+(allege?'Une dernière option avant de partir':d.h1)+'</h1>'
++'<p class="lead">'+d.intro+'</p>'
++'<div class="card"><img src="'+CDN+d.img+'" alt="">'+d.corps+'</div>'
++'<button class="cta" id="oui">'+d.oui+'<small>'+d.ouiSub+'</small></button>'
++'<button class="no" id="non1">'+d.non+'</button>'
++'<h2>Ce que tu obtiens</h2><ul>';
+d.bullets.forEach(function(b){h+='<li>'+b+'</li>'});
+h+='</ul><div class="qt">'+d.cite+'</div>'
++'<div class="px"><div class="old">'+d.oldpx+'</div><div class="now">'+d.px+'</div><div class="mini">'+d.mini+'</div></div>'
++'<div class="gar">'+d.gar+'</div>'
++'<div class="wemb hide" id="emb"></div>'
++'<button class="cta" id="oui2">'+d.oui+'<small>'+d.ouiSub+'</small></button>'
++'<button class="no" id="non2">'+d.non+'</button>'
++'<p class="lg">Paiement sécurisé par Whop · Le Lien Retrouvé</p></div>';
+document.getElementById('llo').innerHTML=h;
+
+function fb(ev,o){try{if(window.fbq)fbq('track',ev,o||{})}catch(e){}}
+function montrer(){
+ var e=document.getElementById('emb');
+ if(e.getAttribute('data-whop-checkout-plan-id')){e.scrollIntoView({block:'center'});return}
+ e.className='wemb';
+ e.setAttribute('data-whop-checkout-plan-id',plan);
+ e.setAttribute('data-whop-checkout-theme','light');
+ e.setAttribute('data-whop-checkout-locale','fr');
+ e.setAttribute('data-whop-checkout-return-url',suite(flux.oui));
+ e.setAttribute('data-whop-checkout-on-complete','lloDone');
+ e.setAttribute('data-whop-checkout-setup-future-usage','off_session');
+ e.setAttribute('data-whop-checkout-collect-phone-numbers','false');
+ e.setAttribute('data-whop-checkout-theme-accent-color','#4C6FB5');
+ e.setAttribute('data-whop-checkout-theme-border-radius','12');
+ if(email)e.setAttribute('data-whop-checkout-prefill-email',email);
+ fb('InitiateCheckout',{content_name:ECRAN});
+ setTimeout(function(){e.scrollIntoView({block:'center'})},350);
+}
+window.lloDone=function(planId,receiptId){
+ fb('Purchase',{value:parseFloat(d.px),currency:'EUR',content_name:ECRAN});
+ location.href=suite(flux.oui);
+};
+document.getElementById('oui').onclick=montrer;
+document.getElementById('oui2').onclick=montrer;
+document.getElementById('non1').onclick=function(){fb('ViewContent',{content_name:ECRAN+'_refus'});location.href=suite(flux.non)};
+document.getElementById('non2').onclick=function(){location.href=suite(flux.non)};
+
+if(PIXEL_ID){
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init',PIXEL_ID);fbq('track','PageView');
+}
+})();
+</script>
