@@ -1,0 +1,145 @@
+<div id="llm"></div>
+
+<style>
+#llm *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+#llm{--bg:#EAF0F7;--ink:#1F2937;--deep:#2C3E66;--blue:#4C6FB5;--gold:#F3C34B;--gold2:#E0A32B;
+--soft:#4B5A76;--mute:#7C8AA5;--line:#D6DEEA;--ok:#00875A;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink);min-height:100vh;padding:16px 18px 44px;line-height:1.45;
+-webkit-font-smoothing:antialiased;text-align:left}
+#llm .w{max-width:460px;margin:0 auto}
+#llm .br{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:18px}
+#llm .br svg{width:26px;height:26px;flex:0 0 26px}
+#llm .br b{font-size:18px;font-weight:800;color:var(--deep)}
+#llm .ok{width:54px;height:54px;border-radius:50%;background:#E7F7EF;display:flex;align-items:center;
+justify-content:center;margin:0 auto 14px;font-size:27px;color:var(--ok)}
+#llm h1{font-size:24px;font-weight:800;line-height:1.24;text-align:center;margin-bottom:8px}
+#llm .lead{font-size:15px;color:var(--soft);text-align:center;margin-bottom:18px}
+#llm .lead b{color:var(--ink)}
+#llm h2{font-size:18px;font-weight:800;margin:22px 0 11px}
+#llm .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(31,41,55,.09);margin-bottom:12px}
+#llm .card img{width:100%;border-radius:10px;display:block;margin-bottom:12px}
+#llm .card p{font-size:14.5px;margin-bottom:10px}
+#llm .card p:last-child{margin-bottom:0}
+#llm b{font-weight:800;color:var(--deep)}
+#llm ol{counter-reset:s;list-style:none}
+#llm ol li{counter-increment:s;display:flex;gap:11px;font-size:14.5px;margin-bottom:12px;align-items:flex-start}
+#llm ol li:before{content:counter(s);background:var(--blue);color:#fff;width:22px;height:22px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;flex:0 0 22px;margin-top:1px}
+#llm .cta{display:block;width:100%;background:var(--gold);color:#3A2A05;border:0;border-radius:30px;
+padding:16px;text-align:center;font-weight:800;font-size:16px;font-family:inherit;cursor:pointer;
+box-shadow:0 3px 12px rgba(224,163,43,.32);margin:14px 0 6px;text-decoration:none}
+#llm .no{display:block;width:100%;background:none;border:0;color:var(--mute);font-size:13.5px;
+font-family:inherit;text-decoration:underline;cursor:pointer;padding:9px;text-align:center}
+#llm .wemb{min-height:400px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(31,41,55,.09);margin-bottom:10px}
+#llm .box{background:#FFF8E8;border:1px solid #F2DFB0;border-radius:12px;padding:15px;margin-bottom:12px}
+#llm .box .t{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A5B06;margin-bottom:7px}
+#llm .gar{background:#F2FBF6;border:1px solid #CBEBD9;border-radius:12px;padding:13px;font-size:13.5px;color:#14532D;margin-bottom:12px}
+#llm .lg{font-size:12px;color:var(--mute);text-align:center;margin-top:16px;line-height:1.5}
+#llm .px{text-align:center;margin-bottom:10px}
+#llm .px .old{font-size:14px;color:var(--mute);text-decoration:line-through}
+#llm .px .now{font-size:30px;font-weight:800;color:var(--deep);letter-spacing:-.02em}
+</style>
+
+<script>
+(function(){
+var CDN="https://cdn.jsdelivr.net/gh/userfrensh33-afk/lelienretrouve-assets@main/img/";
+var PIXEL_ID="";
+var PLAN_DERNIERE_PORTE="plan_wo9BlPvw5RawR";  /* Fil Direct 7 jours - 24 EUR */
+
+function qs(k){try{return new URLSearchParams(location.search).get(k)||''}catch(e){return ''}}
+var email=qs('e'), prof=qs('p');
+try{if(!email)email=(JSON.parse(localStorage.getItem('llr_lead')||'{}').e)||''}catch(e){}
+/* ce qu'elle a déjà pris pendant le parcours (posé par les pages OTO) */
+var pris={}; try{pris=JSON.parse(localStorage.getItem('llr_pris')||'{}')}catch(e){}
+var aFilDirect = !!(pris.OTO1||pris.DOWN);
+
+var LOGO='<svg viewBox="0 0 64 64" fill="none">'
++'<path d="M6 20a8 8 0 0 1 8-8h20a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H22l-9 7v-7h-1a6 6 0 0 1-6-6V20Z" fill="#2C3E66"/>'
++'<path d="M58 34a7 7 0 0 0-7-7H40v3a11 11 0 0 1-11 11h-2a7 7 0 0 0 7 6h11l8 6v-6a7 7 0 0 0 5-7v-6Z" fill="#E0A32B"/></svg>';
+
+var h='<div class="w">'
++'<div class="br">'+LOGO+'<b>Le Lien Retrouvé</b></div>'
++'<div class="ok">✓</div>'
++'<h1>C\'est bon. Ton plan est en route.</h1>'
++'<p class="lead">Tout arrive par email'+(email?' à <b>'+email.replace(/</g,'')+'</b>':'')+', d\'ici 2 à 3 minutes.</p>'
+
++'<div class="card"><h2 style="margin-top:0">À faire maintenant, avant de fermer</h2><ol>'
++'<li>Ouvre ta boîte mail et cherche <b>Le Lien Retrouvé</b>. Regarde aussi dans les spams et dans l\'onglet Promotions.</li>'
++'<li>Ajoute l\'expéditeur à tes contacts : c\'est ce qui garantit que la suite arrive bien.</li>'
++'<li>Télécharge le PDF sur ton téléphone. C\'est le soir, devant sa porte, que tu en auras besoin, pas devant ton ordinateur.</li>'
++'</ol></div>';
+
+/* ---- le premier geste : de la valeur tout de suite, avant toute autre offre ---- */
+h+='<div class="card"><img src="'+CDN+'insight-3-espoir.jpg" alt="">'
++'<h2 style="margin-top:0">Ton premier geste, ce soir</h2>'
++'<p>Ne lui annonce rien. Ne lui dis pas que tu as lu quelque chose, ni que tu vas changer : il se mettrait immédiatement sur la défensive.</p>'
++'<p><b>Ce soir, entre dans sa chambre pour une seule raison : lui apporter quelque chose.</b> Un verre d\'eau, son linge propre, rien de plus. Tu poses, tu dis une phrase neutre, tu ressors sans poser de question.</p>'
++'<p>C\'est tout. Ça paraît minuscule, et c\'est exactement le but : tu viens de recréer une interaction qui ne coûte rien à ton ado. Le protocole complet part de là.</p></div>';
+
+if(aFilDirect){
+ h+='<div class="box"><div class="t">Ton Fil Direct</div>'
+ +'<p style="font-size:14.5px">Ton accès arrive dans le même email. Dès que tu l\'as, enregistre le numéro : le jour où ça dérape, tu n\'auras pas envie de chercher où écrire.</p>'
+ +'<p style="font-size:14.5px;margin-top:8px"><b>Écris-nous dès ce soir</b>, même si tout va bien. Raconte juste comment ça s\'est passé : on te dira quoi faire demain.</p></div>';
+}else{
+ /* dernière porte : elle n'a rien pris pendant le parcours */
+ h+='<h2>Une dernière chose, et on te laisse</h2>'
+ +'<div class="card"><p>Tu as le guide. Tu sais quoi dire dans les situations prévues.</p>'
+ +'<p><b>Mais il y aura un soir où ça ne ressemblera à aucun exemple.</b> Une phrase que tu n\'avais pas vue venir, une porte qui claque au mauvais moment. C\'est là que tout se joue, et c\'est là qu\'on abandonne.</p>'
+ +'<p>Pendant <b>7 jours</b>, tu peux nous écrire à ce moment-là et recevoir la phrase exacte à dire. Sept soirs, c\'est assez pour traverser une crise.</p></div>'
+ +'<div class="px"><div class="old">Au lieu de 47 €</div><div class="now">24 €</div></div>'
+ +'<div class="gar"><b>Remboursée si ça ne t\'aide pas</b>, 30 jours, sans justification.</div>'
+ +'<button class="cta" id="ouvrir">Ajouter le Fil Direct 7 jours</button>'
+ +'<div class="wemb" id="emb" hidden></div>'
+ +'<button class="no" id="fermer">Non merci, j\'ai tout ce qu\'il me faut</button>';
+}
+
+h+='<p class="lg">Un souci avec ta commande ? Réponds simplement à l\'email que tu viens de recevoir.<br>Le Lien Retrouvé · Paiement traité par Whop</p></div>';
+document.getElementById('llm').innerHTML=h;
+
+function fb(ev,o){try{if(window.fbq)fbq('track',ev,o||{})}catch(e){}}
+fb('ViewContent',{content_name:'page_merci',content_category:aFilDirect?'avec_oto':'sans_oto'});
+
+/* ---- dernière porte : l'embed est monté au chargement (le loader Whop ne scanne qu'une fois) ---- */
+var e=document.getElementById('emb');
+if(e){
+ e.setAttribute('data-whop-checkout-plan-id',PLAN_DERNIERE_PORTE);
+ e.setAttribute('data-whop-checkout-theme','light');
+ e.setAttribute('data-whop-checkout-locale','fr');
+ e.setAttribute('data-whop-checkout-return-url','https://www.lelienretrouve.fr/merci?ok=1'+(prof?'&p='+encodeURIComponent(prof):''));
+ e.setAttribute('data-whop-checkout-on-complete','llmDone');
+ e.setAttribute('data-whop-checkout-collect-phone-numbers','false');
+ e.setAttribute('data-whop-checkout-theme-accent-color','#4C6FB5');
+ e.setAttribute('data-whop-checkout-theme-border-radius','12');
+ if(email)e.setAttribute('data-whop-checkout-prefill-email',email);
+ var b=document.getElementById('ouvrir');
+ if(b)b.onclick=function(){
+  if(!e.hidden){e.scrollIntoView({block:'center'});return}
+  e.hidden=false; fb('InitiateCheckout',{content_name:'derniere_porte'});
+  setTimeout(function(){e.scrollIntoView({block:'center'})},350);
+ };
+ var f=document.getElementById('fermer');
+ if(f)f.onclick=function(){
+  try{var p=JSON.parse(localStorage.getItem('llr_pris')||'{}');p.refusPDR=1;localStorage.setItem('llr_pris',JSON.stringify(p))}catch(x){}
+  f.textContent='Très bien. Bonne soirée, et courage.'; f.style.textDecoration='none';
+  var c=document.getElementById('ouvrir'); if(c)c.style.display='none'; e.hidden=true;
+ };
+}
+window.llmDone=function(planId,receiptId){
+ try{var p=JSON.parse(localStorage.getItem('llr_pris')||'{}');p.DOWN=1;localStorage.setItem('llr_pris',JSON.stringify(p))}catch(x){}
+ fb('Purchase',{value:24,currency:'EUR',content_name:'derniere_porte'});
+ location.href='https://www.lelienretrouve.fr/merci?ok=1';
+};
+
+var wl=document.createElement('script');
+wl.async=true; wl.src='https://js.whop.com/static/checkout/loader.js';
+document.body.appendChild(wl);
+
+if(PIXEL_ID){
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init',PIXEL_ID);fbq('track','PageView');
+}
+})();
+</script>

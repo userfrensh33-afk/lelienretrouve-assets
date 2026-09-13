@@ -176,6 +176,9 @@ function montrer(){
 }
 window.lloDone=function(planId,receiptId){
  fb('Purchase',{value:parseFloat(d.px),currency:'EUR',content_name:ECRAN});
+ /* trace de ce qui a ete pris : la page /merci s'y adapte (derniere porte ou pas) */
+ try{var pr=JSON.parse(localStorage.getItem('llr_pris')||'{}');pr[ECRAN]=1;
+     if(receiptId)pr[ECRAN+'_r']=receiptId;localStorage.setItem('llr_pris',JSON.stringify(pr))}catch(e){}
  location.href=suite(flux.oui);
 };
 document.getElementById('oui').onclick=montrer;
