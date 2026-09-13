@@ -59,7 +59,7 @@ border-radius:20px;padding:7px 11px;font-size:12.5px;font-weight:700;color:var(-
 (function(){
 /* ====== À RENSEIGNER après création du produit dans Whop ====== */
 var PLAN_ID   = "plan_V9yQwJsg5AEeC";                       // Le Lien Retrouve - Guide (FR) 19,99 EUR
-var RETURN_URL= "https://www.lelienretrouve.fr/merci";      // page post-achat (OTO1 plus tard)
+var RETURN_URL= "https://www.lelienretrouve.fr/oto-1";      // -> OTO1 Le Fil Direct 47 EUR
 var PIXEL_ID  = "";
 /* ============================================================= */
 var CDN="https://cdn.jsdelivr.net/gh/userfrensh33-afk/lelienretrouve-assets@main/img/";
